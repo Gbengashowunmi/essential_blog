@@ -1,0 +1,24 @@
+.filter-btns{
+    width: 100%;
+    height: fit-content;
+    // background-color: azure;
+    margin-top: 2rem;
+    // margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    .filter-btn{
+        border-radius: 8px;
+        border: 1px solid orangered;
+        padding: 8px 22px;
+        transition: .7s;
+
+    }
+    .filter-btn:hover{
+        background-color: orangered;
+        color: white;
+        transition: .7s;
+    }
+}

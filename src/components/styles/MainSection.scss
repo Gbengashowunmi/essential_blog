@@ -1,0 +1,104 @@
+.mainSection {
+
+  //for dashBoard
+
+// background-color: rgb(238, 208, 208);
+//   width: 100%;
+//   height: fit-content;
+//   justify-content: space-between;
+  // dashboard ends here
+
+
+  background-color: rgb(243, 243, 243);
+  width: 100%;
+  display: flex;
+  // grid-template-columns: 2fr 1fr;
+  height: auto;
+  justify-content: space-between;
+  // min-height: 800px;
+  margin: 2rem 0;
+  padding: 2rem;
+  grid-column-gap: 2rem;
+  position: relative;
+  // margin: 3rem auto;
+  .up-btn{
+    width: fit-content;
+    height: fit-content;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    border-radius: 5px;
+    // background-color: orangered;
+    color: white;
+    border:none;
+  }
+  
+}
+.leftSection {
+  width: 90%;
+  // border: 2px solid yellow;
+  padding-bottom: 2rem;
+}
+
+.rightSection{
+  width: 35%;
+  //  border: 2px solid red;
+    background-color: rgb(246, 250, 246);
+//     .weekTrends{
+//         height: fit-content;
+//         // background-color: red;
+
+//         .weekTrend-heading{
+//             text-align: left;
+//             box-shadow: 2px 2px 5px grey;
+//         padding: .8rem;
+
+//         }
+//         .trends{
+//             height: fit-content;
+//         }
+//     }
+
+}
+
+.sticky {
+  position: fixed;
+  // top: 50;
+  right: 2rem;
+  width: 35%;
+  // z-index: 999;
+  box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
+  background-color: #ffffff !important;
+  animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+@media (max-width: 1024px) {
+  .mainSection {
+    // background-color: rgb(194, 62, 62);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+    // min-height: 800px;
+    // margin: 2rem;
+    padding: 2rem;
+  }
+  .leftSection {
+    width: 100%;
+    // border: 2px solid yellow;
+    padding-bottom: 2rem;
+  }
+  .rightSection {
+    // border: 2px solid red;
+    width: 100%;
+
+    //     background-color: rgb(246, 250, 246);
+    //     .weekTrends{
+    //         height: fit-content;
+    //         // background-color: red;
+  }
+}

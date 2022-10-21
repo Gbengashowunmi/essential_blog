@@ -1,0 +1,238 @@
+.businessSection {
+  width: 100%;
+  margin-top: 0.8rem;
+  // background-color: red;
+  header {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    color: orangered;
+    align-items: center;
+    // padding: auto;
+    // background-color: blue;
+    h3 {
+      font-weight: bolder;
+    }
+  }
+  .business {
+    display: flex;
+    // border: 2px solid grey;
+    height: fit-content;
+    justify-content: space-between;
+    gap: 2rem;
+    .leftBusiness {
+      width: 100%;
+      height: 100%;
+      // border: 2px solid violet;
+
+      .image {
+        width: 100%;
+        height: 20rem;
+        //  border: 2px solid rgb(124, 124, 20);
+        object-fit: contain;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .caption {
+        width: 100%;
+        height: fit-content;
+        padding: 1rem 1rem;
+        // border: 2px solid yellow;
+        background-color: orangered;
+        color: white;
+        span {
+          display: flex;
+          width: 40%;
+          color: white;
+          justify-content: left;
+          gap: 1rem;
+        // border: 2px solid yellow;
+
+        }
+      }
+    }
+
+    .rightBusiness {
+      width: 45%;
+      height: 95%;
+      // border: 2px solid violet;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+
+      .right {
+        height: fit-content;
+        // border: 2px solid yellow;
+        box-shadow: 1px 2px 3px grey;
+        padding: 2rem;
+        flex-direction: column;
+        background-color: white;
+
+        h5 {
+          // border: 2px solid orange;
+          font-size: 1rem;
+        }
+
+        button {
+          background: none;
+          border: none;
+          color: orangered;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 790px) {
+  .businessSection {
+    .business {
+      display: flex;
+      flex-direction: column;
+      // border: 2px solid grey;
+      height: fit-content;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      .leftBusiness {
+        width: 100%;
+        height: 100%;
+        // border: 2px solid violet;
+
+        .image {
+          width: 100%;
+          height: 20rem;
+          // border: 2px solid rgb(124, 124, 20);
+          object-fit: contain;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .caption {
+          width: 100%;
+          height: fit-content;
+          padding: 1rem 1rem;
+          // border: 2px solid yellow;
+          // background-color: orangered;
+          color: white;
+          span {
+            display: flex;
+            width: fit-content;
+            justify-content: left;
+            gap: 2rem;
+            // padding-bottom: 0;
+            color: white;
+            // border: 2px solid yellow;
+          }
+        }
+      }
+
+      .rightBusiness {
+        width: 100%;
+        // border: 2px solid violet;
+
+        .right {
+          height: fit-content;
+          // border: 2px solid yellow;
+          box-shadow: 1px 2px 3px grey;
+          padding: 1rem;
+          flex-direction: column;
+          background-color: white;
+
+          h5 {
+            // border: 2px solid orange;
+            font-size: 1rem;
+          }
+
+          button {
+            background: none;
+            border: none;
+            color: orangered;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+// .businessSection{
+//
+
+//         .leftBusiness{
+//             width: 55%;
+//             height: 100%;
+//             // border: 2px solid violet;
+//             .image{
+//                 width: 100%;
+//                 height: 20rem;
+//                 // border: 2px solid rgb(124, 124, 20);
+//                 object-fit: contain;
+//                 img{
+//                     width: 100%;
+//                     height: 100%;
+//                     object-fit: cover;
+//                 }
+
+//         }
+//         .caption{
+//             width: 100%;
+//             height: fit-content;
+//             padding: 2rem 1rem;
+//             // border: 2px solid yellow;
+//             background-color: orangered;
+//             color: white;
+//         }
+//         }
+//     }
+// }
+
+// .staffPick{
+//     width: 100%;
+//     height: 500px ;
+//     // border: 2px solid orange;
+//     display: flex;
+//     gap: 1rem;
+// .rightStaff{
+//     width: 45%;
+//     height: 100%;
+//     // border: 2px solid violet;
+//     display: flex;
+//     flex-direction: column;
+//     overflow: hidden;
+
+//     .right{
+//         height: 150px;
+//         width: 100%;
+//         // border: 2px solid red;
+//         position: relative;
+//         margin-bottom: 1.3rem;
+//         padding:0 1rem;
+//         .button-info{
+//             position: absolute;
+//             top: 2rem;
+//             left: 2rem;
+//             color: white;
+
+//             button{
+//                 background-color: orangered;
+//                 border: none;
+//                 border-radius: 3px;
+//                 color: white;
+//             }
+//         }
+
+//         img{
+//             width: 100%;
+//             height: 100%;
+//             object-fit: cover;
+//         }
+//     }
+// }
