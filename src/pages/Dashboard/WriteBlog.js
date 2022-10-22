@@ -5,17 +5,32 @@ import "./DashboardStyles/WriteBlog.scss";
 import Editor from "./Editor";
 import Dashboard from "./Dashboard";
 import AuthenticationContext from "../Login/AuthContext";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 export default function WriteBlog() {
   const authctx = useContext(AuthenticationContext);
   const getAdmin = window.localStorage.getItem('is_admin');
   const getLoggedIn = window.localStorage.getItem('is_loggedIn');
+  const [value, setValue] = useState('');
+
 
   const [input, setInput] = useState({
     title: "",
     description: "",
   });
 
+  const modules = {
+    toolbar: [
+        ["bold", "underline", "italic"],
+        ["code-block", "blockquote"],
+        [{ header: [1, 2, 3, 4, 5] }],
+        [{ list: "ordered" }],
+        [{ list: "bullet" }],
+        ['link', 'image'],
+    ]
+}
+console.log(value);
   const [image, setImage] = useState(null)
 
   const HandleInput = (e) => {
@@ -30,6 +45,7 @@ export default function WriteBlog() {
   setImage(e.target.files[0])
     }
     // console.log(image);
+    const [showBtn, setshowBtn] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -37,9 +53,15 @@ export default function WriteBlog() {
     myHeaders.append("Authorization", `Token ${authctx.isLoggedIn}`);
     var formdata = new FormData();
     formdata.append("image", image);
-    formdata.append("description", input.description);
+    formdata.append("description", value);
     formdata.append("title", input.title);
 
+    if(input.title===''|| value===''|| image=== null){
+      setshowBtn(false)
+    }
+    else{
+      setshowBtn(true)
+    }
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
@@ -51,27 +73,14 @@ export default function WriteBlog() {
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
-
-    // console.log(body)
   }
   return (
 
     <Dashboard>
     <div className="writeBlog">
+      <h3 className="header">Write You Blog here</h3>
       <form className="blogpreview">
-        <input placeholder="What You Have Written" />
         <div className="setPost">
-          <select
-            name="language"
-            id="language"
-            form="languageform"
-            className="preview"
-          >
-            <option value="english">English</option>
-            <option value="french">French</option>
-            <option value="yoruba">Yoruba</option>
-            <option value="pidgin">Pidgin</option>
-          </select>
           <button className="preview">Preview</button>
           <button type="submit" className="save">
             Save
@@ -94,14 +103,15 @@ export default function WriteBlog() {
         />
 
         <label>Description:</label>
-        {/* <Editor /> */}
-        <textarea onChange={HandleInput} name="description" id="your-text" placeholder="Enter description"></textarea>
+        <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} className="editorr"  placeholder="write your blog here"/>
+        {/* <textarea onChange={HandleInput} name="description" id="your-text" placeholder="Enter description"></textarea> */}
 
         <label>Image:</label>
         <input name="file" type="file" onChange={HandleImage}/>
-        <button type="submit" className="submit-btn">
-          Post
-        </button>
+        {/* <button type="submit" className= {showBtn?"submit-btn" : " hide submit-btn"}>post</button> */}
+        <button type="submit" className="submit-btn" disabled={showBtn}>post</button>
+        
+      {/* <div className={response? 'show':'hide'}>Post sent</div> */}
       </form>
 
       {/* {
@@ -109,6 +119,7 @@ export default function WriteBlog() {
       CKEditor.replace("your-text")
       } */}
     </div>
+
     </Dashboard>
   );
 }

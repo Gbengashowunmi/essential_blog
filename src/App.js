@@ -26,6 +26,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Posts from "./pages/Dashboard/Posts";
 import Categories from "./pages/Dashboard/Categories";
 import UserPosts from "./pages/Dashboard/UserPosts";
+import Tech from "./components/Tech";
 
 // export const AppUrl = "https://essential.pythonanywhere.com";
 
@@ -50,6 +51,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainSection />}>
             <Route index element={<LeftSection />}></Route>
+            <Route path="/Tech" element={<Tech />}></Route>
+          
             <Route path="/detail/:id/:name" element={<DetailsLeftSection />}></Route>
           </Route>
 

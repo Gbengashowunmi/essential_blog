@@ -5,8 +5,10 @@ import { AiOutlineRight } from "react-icons/ai";
 import "./styles/staffpick.scss";
 
 export default function StaffPick() {
+
+
   return (
-    <div className="staffSection">
+    <div className="staffSection" id="Tech">
       <header>
         <h3>STAFF PICK</h3>
         <p>

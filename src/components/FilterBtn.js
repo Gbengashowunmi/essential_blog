@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { AppUrl } from "../App";
+import Architect from "./Architect";
+import Business from "./Business";
+import Fashion from "./Fashion";
+import PoliticsScience from "./PoliticsScience";
+import Readers from "./Readers";
+import StaffPick from "./StaffPick";
 import './styles/FilterBtn.scss'
+import Tech from "./Tech";
 
 export default function FilterBtns(){
-const [categories, setCategories] = useState([])
 
-    const fetchCategories = async () => {
-        const result = await fetch(`${AppUrl}/categories/`);
-        const data = await result.json();
-        setCategories(data);
-        // console.log(data); 
-      };
-      useEffect(()=>{
-      fetchCategories()
-      },[])
+   
 
     //   const filterCategory = ()=>{
     //     categories.map(category=>{
@@ -22,14 +20,23 @@ const [categories, setCategories] = useState([])
     //   }
 
 
+   
+
 
     return(
-    <div className="filter-btns">  
-    {categories.map(category=>{
-        return <button className="filter-btn">{category.name}</button>
-
-    })}
     
-    </div>
+        {/* <div>
+            <div hidden={showCategory !== "Sports "}><StaffPick /></div>
+            <div hidden={showCategory !== "Headline"}><Business /></div>
+            <div hidden={showCategory !== "Tech"}><Tech /></div>
+            <div hidden={showCategory !== "Fashion"}><Fashion /></div>
+            <div hidden={showCategory !== "Weather"}><Readers /></div>
+            <div hidden={showCategory !== "Medicine"}><Architect /></div>
+            <div hidden={showCategory !== "Politics"}><PoliticsScience /></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div> */}
+    
     )
 }

@@ -1,7 +1,15 @@
+
+        
+        $deepBlue: rgb(2, 2, 56);
 .writeBlog {
   width: 100%;
   height: 100%;
+
   // border: 2px solid yellow;
+  .header{
+    text-align: center;
+    color:$deepBlue;
+  }
   .blogpreview {
     width: 100%;
     height: 2rem;
@@ -25,14 +33,14 @@
         border: 0.5px solid rgb(104, 97, 97);
       }
       .save {
-        background-color: rgb(2, 2, 56);
+        background-color:$deepBlue;
         color: white;
         border-radius: 5px;
         border: 0.5px solid white;
         padding: 0.3rem 1rem;
       }
       .save:hover{
-        background-color: rgb(1, 1, 29);
+        background-color: $deepBlue;
 
       }
     }
@@ -69,11 +77,36 @@
       border: 1px solid grey;
       outline: none;
     }
+    
+     
+      .editorr{
+        width: 100%;
+        // border: 2px solid red;
+        .ql-toolbar{
+          display: flex;
+          width: 100%;
+          // border: 2px solid red;
+          .ql-formats{
+            width: fit-content;
+        }
+      }
+      img{
+        width: 60%;
+        height: auto;
+      }
+      .ql-editor{
+        background-color: white;
+        min-height:20rem ;
+        height: fit-content;
+      }
+    }
+
+      
     .submit-btn {
       width: fit-content;
       margin: auto;
       padding: 0.3rem 1rem;
-      background-color: rgb(2, 2, 56);
+      background-color: $deepBlue;
       color: white;
       border-radius: 5px;
       border: 0.5px solid rgb(104, 97, 97);
@@ -81,7 +114,12 @@
   }
 }
 
-
+.show{
+  display: block;
+}
+.show{
+  display: none;
+}
 @media (max-width:800px) {
   .writeBlog {
     width: 100%;
