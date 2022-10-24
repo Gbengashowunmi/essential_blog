@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { AppUrl } from '../App'
 import './styles/Tech.scss'
 
-export default function Tech({className}) {
+export default function Tech() {
     const [techNews, setTechNews] = useState([])
 
 
@@ -21,7 +21,7 @@ export default function Tech({className}) {
 
   
   return (
-    <div className={className}>
+    <div className='tech'>
     <span><h3>TECH</h3><p>VIEW ALL<AiOutlineRight /></p></span>
     <div className='tech-items'>
 

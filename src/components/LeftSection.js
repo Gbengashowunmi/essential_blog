@@ -87,8 +87,8 @@ categories.forEach(category=>{
       <div hidden={showCategory !== "Medicine"} ><Readers/></div>
       <div hidden={showCategory !== "Weather"} ><Architect/></div>
       <div hidden={showCategory !== "Politics"} ><PoliticsScience/></div> */}
+      <Tech/>
       <Business />
-      <Tech className='tech'/>
       <Fashion/>
       <Readers/>
       <Architect/>
