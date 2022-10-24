@@ -21,7 +21,7 @@ export default function Headers() {
   const checkAdmin = getAdmin==='true'?true:false
   const getLoggedIn = window.localStorage.getItem('is_loggedIn');
 
-
+  
    // Sticky Menu Area
    useEffect(() => {
     window.addEventListener('scroll', isSticky);

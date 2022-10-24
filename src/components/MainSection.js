@@ -17,21 +17,19 @@ export default function MainSection() {
         const scrollUp =()=>{
           window.scrollTo({top: 0, left: 0, behavior: 'smooth'
         })}
-         // Sticky Menu Area
-  useEffect(() => {
-    window.addEventListener('scroll', isSticky);
-    return () => {
-        window.removeEventListener('scroll', isSticky);
-    };
-});
-// /* Method that will fix rightSection after a specific scrollable */
-       const isSticky = (e) => {
-            const rightSection = document.querySelector('.rightSection');
-            const scrollTop = window.scrollY;
-            // console.log(window.scrollY);
-            scrollTop >= 1024 ? rightSection.classList.add('sticky') : rightSection.classList.remove('sticky');
-        };
-
+        useEffect(() => {
+          window.addEventListener('scroll', isSticky);
+          return () => {
+              window.removeEventListener('scroll', isSticky);
+          };
+        });
+        /* Method that will fix header after a specific scrollable */
+             const isSticky = (e) => {
+                  const rightSection = document.querySelector('.right-section');
+                  const scrollTop = window.scrollY;
+                  // console.log(window.scrollY);
+                  scrollTop >= 60 ? rightSection.classList.add('stick') : rightSection.classList.remove('stick');
+              };
         
         // console.log(authctx.isLoggedIn);
 

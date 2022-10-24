@@ -1,5 +1,6 @@
 import React from "react";
 import { AiFillFacebook, AiFillLinkedin, AiFillYoutube, AiOutlineTwitter } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import './styles/Footer.scss'
 export default function Footer() {
   return (
@@ -11,12 +12,12 @@ export default function Footer() {
       </div>
 
       <ul className="ul">
-        <li>About</li>
-        <li>Contact</li>
-        <li>Forum</li>
-        <li>Policy</li>
-        <li>FAQ</li>
-        <li>Shop</li>
+       <Link to="about"><li>About</li></Link>
+       <Link to="/abou"> <li>Contact</li></Link>
+       <Link to="/abo"> <li>Forum</li></Link>
+       <Link to="/abow"> <li>Policy</li></Link>
+        <Link to="/abe"> <li>FAQ</li></Link>
+        <Link to="/abwe"><li>Shop</li></Link>
       </ul>
       <div className="form-section">
         <div className="contact-icons">

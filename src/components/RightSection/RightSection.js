@@ -3,7 +3,20 @@ import CustomRight from './CustomRight'
 import './styles/RightSection.scss'
 
 export default function RightSection() {
-
+// Sticky Menu Area
+// useEffect(() => {
+//   window.addEventListener('scroll', isSticky);
+//   return () => {
+//       window.removeEventListener('scroll', isSticky);
+//   };
+// });
+// /* Method that will fix header after a specific scrollable */
+//      const isSticky = (e) => {
+//           const rightSection = document.querySelector('.right-section');
+//           const scrollTop = window.scrollY;
+//           // console.log(window.scrollY);
+//           scrollTop >= 60 ? rightSection.classList.add('stick') : rightSection.classList.remove('stick');
+//       };
  
   return (  
     <div className='right-section'>

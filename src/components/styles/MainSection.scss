@@ -30,9 +30,13 @@
 }
 
 .rightSection{
-  width: 35%;
+  width: 30%;
+  height: 95vh;
   //  border: 2px solid red;
-    background-color: rgb(246, 250, 246);
+  //  overflow-y: scroll;
+  //  position: fixed;
+   margin-bottom: 2rem;
+     // background-color: rgb(246, 250, 246);
 //     .weekTrends{
 //         height: fit-content;
 //         // background-color: red;
@@ -49,6 +53,24 @@
 //     }
 
 }
+
+// .stick {
+//   position: fixed;
+//   top: 10vh;
+//   right: 2rem;
+//   width: 26vw;
+//   // z-index: ;
+//   // height: 10rem;
+
+//   // box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
+//   // background-color: #ffffff !important;
+//   animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+//   // padding-top: 0px;
+//   // padding-bottom: 0px;
+//   // border: 2px solid yellow;
+//   // overflow-y: scroll;
+
+// }
 
 @media (max-width: 1024px) {
   .mainSection {

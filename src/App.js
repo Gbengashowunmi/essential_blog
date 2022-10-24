@@ -27,6 +27,7 @@ import Posts from "./pages/Dashboard/Posts";
 import Categories from "./pages/Dashboard/Categories";
 import UserPosts from "./pages/Dashboard/UserPosts";
 import Tech from "./components/Tech";
+import About from "./components/About";
 
 export const AppUrl = "https://essential.pythonanywhere.com";
 
@@ -51,13 +52,15 @@ function App() {
         <Routes>
           <Route path="/" element={<MainSection />}>
             <Route index element={<LeftSection />}></Route>
-            <Route path="/Tech" element={<Tech />}></Route>
+            {/* <Route path="/Tech" element={<Tech />}></Route> */}
           
             <Route path="/detail/:id/:name" element={<DetailsLeftSection />}></Route>
           </Route>
 
           <Route path="login" element={<LoginPage />}></Route>
           <Route path="signup" element={<SignUp />}></Route>
+          <Route path="about" element={<About />}></Route>
+
           <Route
             path={getLoggedIn ? "dashboard" : "login"}
             element={getLoggedIn ? <Dashboard /> : <LoginPage />}
