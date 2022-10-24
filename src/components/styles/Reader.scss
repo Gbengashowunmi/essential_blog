@@ -53,6 +53,33 @@
         gap: 1rem;
       }
     }
+    .pub_btns{
+      width: fit-content;
+      height: fit-content;
+      // border: 2px solid red;
+      button{
+        border: 1px solid transparent;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: blue;
+        color: white;
+        padding: .3rem .8rem;
+        transition: .8s;
+      }
+      button:hover{
+        background-color: transparent;
+        color: blue;
+        border: 1px solid blue;
+        transition: .8s;
+      }
+      .approve{
+        background-color: green;
+      }
+      .reject{
+        background-color: tomato;
+
+      }
+    }
   }
 }
 

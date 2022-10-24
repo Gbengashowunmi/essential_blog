@@ -65,17 +65,11 @@ function App() {
 
           
           <Route path= {checkAdmin?"/dashboard/posted-blogs":"/dashboard/create-post"} element={checkAdmin?<Posts/>:<WriteBlog />}></Route>
-        {/* <Route path= {authctx.is_admin?"/dashboard/posted-blogs":"/dashboard/create-post"} element={authctx.is_admin?<Posts/>:<WriteBlog />}></Route> */}
-          
-          
-          
-          {/* <Route path="/dashboard/posted-blogs" element={<Posts />}></Route> */}
-          {/* <Route path="/dashboard/create-post" element={<WriteBlog />}></Route> */}
           <Route path="/dashboard/categories" element={<Categories />}></Route>
           <Route path="/dashboard/user-posts" element={<UserPosts />}></Route>
           <Route path="/dashboard/media" element={<Media />}></Route>
           <Route path="/dashboard/team" element={<Team />}></Route>
-          {/* <Route path="/detail/:id" element={<DetailsLeftSection />}></Route> */}
+          <Route path="/detail/:id" element={<DetailsLeftSection />}></Route>
           <Route path="*" element={<LoginPage />} />
         </Routes>
         {/* <Footer /> */}

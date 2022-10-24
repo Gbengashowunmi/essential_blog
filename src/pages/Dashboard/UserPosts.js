@@ -13,6 +13,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineClockCircle, AiOutlineRight } from "react-icons/ai";
 import Dashboard from "./Dashboard";
 import "../../components/styles/Reader.scss";
+import './DashboardStyles/Post.scss'
+
 import { AppUrl } from "../../App";
 import AuthenticationContext from "../Login/AuthContext";
 import { ThreeCircles, ThreeDots } from "react-loader-spinner";
@@ -59,7 +61,7 @@ setLoading(true);
     <Dashboard>
     <div className="reader">
     <span className="span">
-        <h3>Users Posts</h3>
+        <h3>My Recent Posts</h3>
         {/* <p>
           VIEW ALL
           <AiOutlineRight />

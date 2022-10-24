@@ -12,7 +12,7 @@ export default function Tech() {
         const response = await fetch(`${AppUrl}/posts/`)
         const data = await response.json()
         setTechNews(data)
-        // console.log(data)
+        console.log(data)
     }
 
     useEffect(() => {

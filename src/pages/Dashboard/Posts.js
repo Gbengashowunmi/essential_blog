@@ -13,9 +13,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineClockCircle, AiOutlineRight } from "react-icons/ai";
 import Dashboard from "./Dashboard";
 import "../../components/styles/Reader.scss";
+import './DashboardStyles/Post.scss'
 import { AppUrl } from "../../App";
 import AuthenticationContext from "../Login/AuthContext";
 import { ThreeDots } from "react-loader-spinner";
+import { Link } from "react-router-dom";
 
 export default function Posts() {
 
@@ -53,7 +55,7 @@ const getLoggedIn = window.localStorage.getItem('is_loggedIn');
     <Dashboard>
     <div className="reader">
     <span className="span">
-        <h3>Users Posts</h3>
+        <h3>Unpublished Posts</h3>
         {/* <p>
           VIEW ALL
           <AiOutlineRight />
@@ -72,6 +74,8 @@ const getLoggedIn = window.localStorage.getItem('is_loggedIn');
             wrapperClassName=""
             visible={true}
              />:
+<Link to={`/detail/${adminPost.slug}/posts`}   > 
+
             <div className="read">
             <img
               src={adminPost.image}
@@ -86,12 +90,20 @@ const getLoggedIn = window.localStorage.getItem('is_loggedIn');
                   <AiOutlineClockCircle /> {adminPost.created}
                 </p>
               </span>
-              <p>
+              <p className="description">
                 {adminPost.description.substring(0, 120)}
               </p>
+              <span className="pub_btns">   
+              <button>Read Post</button> 
+              <button className="approve">Publish</button> 
+              <button className="reject">Reject</button>
+            </span>
             </div>
             {/* </div> */}
+
+          
           </div>
+          </Link>
           )
         })
       }

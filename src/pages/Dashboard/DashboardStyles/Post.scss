@@ -1,0 +1,16 @@
+.reader{.read:hover{
+transform: scale(1.03);
+cursor: pointer;
+transition: .5s ease-in-out;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.description{
+    width: fit-content;
+    height: fit-content;
+    border: 2px solid red;
+}}

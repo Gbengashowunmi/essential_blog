@@ -17,18 +17,21 @@ import "./styles/DetailsLeft.scss";
 export default function DetailsLeftSection() {
   
   const location = useLocation();
-  // console.log(location.state.data);
   const getLoggedIn = window.localStorage.getItem('is_loggedIn');
   const getAdmin = window.localStorage.getItem('is_admin');
   const checkAdmin = getAdmin==='true'?true:false
 const getUserId = window.localStorage.getItem('user_id');
 
-  const [form, setForm] = useState(false);
+  // const [form, setForm] = useState(false);
   const [details, setDetails] = useState([]);
   const [comments, setComments] = useState([]);
   const [userComments, setUserComments] = useState("");
   const authctx = useContext(AuthenticationContext);
 
+  const handleInput = (e)=>{
+     setUserComments(e.target.value)
+     console.log(userComments);
+  }
   // console.log(logged);
   const params = useParams();
   const fetchComments = async () => {
@@ -38,9 +41,7 @@ const getUserId = window.localStorage.getItem('user_id');
     // console.log(data); 
   };
 
-  const ShowFullForm = () => {
-    setForm(!form);
-  };
+
 
   const id = params.id;
   const name = params.name;
@@ -66,7 +67,8 @@ const getUserId = window.localStorage.getItem('user_id');
       },
     ]);
 
-    // console.log(comments);
+    console.log(comments);
+    console.log(userComments);
 
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Token ${getLoggedIn}`);
@@ -92,7 +94,6 @@ const getUserId = window.localStorage.getItem('user_id');
       : alert("please log in to comment");
           setUserComments("")
 
-    // alert("please log in to comment");
   };
 
   useEffect(() => {
@@ -268,6 +269,8 @@ const data = await response.json()
                   </span>
 
                   <p className="comment">{comment.body}</p>
+                  <p className="comment">{userComments}</p>
+
 
                   <span>
                     {+getUserId === comment.owner_id ? (
@@ -297,8 +300,7 @@ const data = await response.json()
               />
               <input
                 placeholder="comment"
-                onFocus={ShowFullForm}
-                onChange={(e) => setUserComments(e.target.value)}
+                onChange={handleInput}
                 value={userComments}
               />
             </div>
