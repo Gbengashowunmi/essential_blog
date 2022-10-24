@@ -4,13 +4,13 @@ import AuthenticationContext from "../Login/AuthContext";
 import "./DashboardStyles/LeftSideBar.scss";
 
 export default function LeftSideBar() {
-  const [highlight, setHighlight] = useState(false);
+  // const [highlight, setHighlight] = useState(false);
   
   const getAdmin = window.localStorage.getItem('is_admin');
   const getLoggedIn = window.localStorage.getItem('is_loggedIn');
-  const handleClick = () => {
-    setHighlight(prev => !prev);
-  };
+  // const handleClick = () => {
+  //   setHighlight(prev => !prev);
+  // };
   const authctx = useContext(AuthenticationContext);
   const navigate = useNavigate();
   const LogOut = () => {
@@ -37,7 +37,7 @@ export default function LeftSideBar() {
         </Link>
         {authctx.is_admin ?'': 
         <Link to="/dashboard/create-post">
-          <div onClick={handleClick} className= "span" >
+          <div className= "span" >
             <p>
               <i class="fa-regular fa-file-lines icon"></i>
             </p>

@@ -44,8 +44,10 @@ export default function Headers() {
 
 
   return (
-    <div className={menuClick ? "header shownavlist" : "header"}>
-      <div className="wrapper">
+    <div className={menuClick ? "header shownavlist" : "header"} >
+      <div className={menuClick ? "header_overlay" : "hide_overlay"} onClick={HandleClick}></div>
+
+      <div className="wrapper" >
         <div className="leftNav">
           <div className="menu" onClick={HandleClick}>
             <AiOutlineMenu />
@@ -91,7 +93,7 @@ export default function Headers() {
         </div>
       </div>
 
-      <div className="navList">
+      <div className="navList"  onClick={HandleClick}>
         <ul className="navList-ul">
           <Link to="/">
             {/* <AiFillCaretUp className='home-arrow'/> */}

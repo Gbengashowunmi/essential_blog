@@ -25,6 +25,8 @@ export default function Dashboard({children}) {
 
   return (
     <div className='dashboard'>
+      <div className={navClick? "overlay" : "hide_overlay"} onClick={HandleNav}></div>
+
       <div className='dropdown-menus'>
         <div className='nav-menu' onClick={HandleNav}><AiOutlineMenu /></div>
         <div className='profile-menu' onClick={HandleProfile}><AiOutlineMenu /></div>

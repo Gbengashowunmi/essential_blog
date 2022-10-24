@@ -8,7 +8,25 @@
   overflow: hidden;
   flex-direction: column;
   box-shadow: 1px 2px 6px rgba(179, 176, 176, 0.651);
+  z-index: 100;
 
+  .header_overlay{
+    width: 100%;
+    background-color: rgba(3, 6, 51, 0.466);
+    height: 90vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    transition: .5s;
+    z-index: 99;
+  }
+.hide_overlay{
+    opacity: 0;
+    // transform: ;
+    transition: .5s ease-in-out;
+
+  }
   .wrapper {
     display: flex;
     width: 100%;
@@ -16,6 +34,9 @@
     align-items: center;
     height: 50px;
     margin: 0 auto;
+    z-index: 100;
+    background-color: white;
+
     
     // border: 2px solid yellow;
     .leftNav {
@@ -36,6 +57,8 @@
     align-items: center;
     // justify-content: center;
     height: 100%;
+  z-index: 100;
+
     .menu_text{
       margin: auto;
     }
@@ -52,6 +75,9 @@
     justify-content: space-between;
     gap: 1rem;
     margin-right: 2rem;
+    z-index: 100;
+
+    
     // border: 2px solid red;
     .icon {
       width: 1.5rem;
@@ -100,6 +126,8 @@
     // padding-top: 0.5rem;
     align-items: center;
     border-top: 1px solid rgb(167, 2, 2);
+    z-index: 100;
+
   }
 
   .navList.active {

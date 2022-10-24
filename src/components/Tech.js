@@ -24,12 +24,15 @@ export default function Tech() {
     <div className='tech'>
     <span><h3>TECH</h3><p>VIEW ALL<AiOutlineRight /></p></span>
     <div className='tech-items'>
-
 {techNews.map(eachNews =>{
     return (
 <div className='tech-item'>
 {/* <Link to={`detail/${eachNews.id}`}> <div className='image-container'> */}
-<Link to={`detail/${eachNews.slug}/posts`}   state={{data:'posts'}}> <div className='image-container'>
+
+<Link to={`detail/${eachNews.slug}/posts`}   state={{data:'posts'}}> 
+{/* <div className='overlay'></div> */}
+
+ <div className='image-container'>
 
             <img src={eachNews.image} alt=''/>
             <div className='button'>

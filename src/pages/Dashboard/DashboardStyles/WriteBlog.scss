@@ -130,6 +130,7 @@
 }
 @media (max-width:800px) {
   .writeBlog {
+    overflow-x: hidden;
     height: 100%;
     // border: 2px solid yellow;
     .blogpreview {
@@ -152,10 +153,7 @@
       // margin: 0 0.5rem;
       border-radius: 8px;
       background-color: rgb(236, 238, 240);
- 
-      
-       
-        .editorr{
+         .editorr{
           // border: 2px solid red;
           .ql-toolbar{
             width: 100%;
