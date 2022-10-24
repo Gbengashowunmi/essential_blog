@@ -9,6 +9,14 @@
   margin-top: 2rem;
   .span {
     width: 100%;
+    p{
+      transition: .7s;
+    }
+    p:hover{
+      cursor: pointer;
+      color: rgb(190, 56, 7);
+      transition: .7s;
+    }
   }
 
   .read {

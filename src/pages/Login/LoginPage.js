@@ -79,8 +79,10 @@ if (data.token) {
   window.localStorage.setItem('first_name', data.first_name);
   window.localStorage.setItem('user_id', data.id);
   // window.localStorage.setItem('first_name', data.first_name);
+  const firstName = window.localStorage.getItem('first_name');
 
-  toast.success('Successfully Logged in😀')
+
+  toast.success(`Welcome back ${firstName}😀`)
   navigate("/");
 }
 // console.log(data, data.token);
