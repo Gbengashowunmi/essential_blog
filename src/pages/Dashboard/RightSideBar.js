@@ -8,7 +8,7 @@ export default function RightSideBar() {
 
   const authctx = useContext(AuthenticationContext)
   const getFirstName = window.localStorage.getItem('first_name');
-
+   
   return (
     <div className="rightSdieBar">
       <form className="form">

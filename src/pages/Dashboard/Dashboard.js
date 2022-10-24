@@ -13,9 +13,7 @@ export default function Dashboard({children}) {
   const [navClick, setNavclick] = useState(false);
   const [profileClick, setProfileclick] = useState(true);
   const HandleNav = () => {
-    // console.log('clicked');
     setNavclick((prev) => !prev);
-    // console.log(navClick);
   };
   const HandleProfile = () => {
     // console.log('clicked');
@@ -26,6 +24,7 @@ export default function Dashboard({children}) {
   return (
     <div className='dashboard'>
       <div className={navClick? "overlay" : "hide_overlay"} onClick={HandleNav}></div>
+      <div className={!profileClick? "overlay" : "hide_overlay"} onClick={HandleProfile}></div>
 
       <div className='dropdown-menus'>
         <div className='nav-menu' onClick={HandleNav}><AiOutlineMenu /></div>
