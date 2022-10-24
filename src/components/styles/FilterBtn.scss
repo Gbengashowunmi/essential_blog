@@ -9,16 +9,36 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    .filter-btn{
+    .filter_btn{
         border-radius: 8px;
         border: 1px solid orangered;
-        padding: 8px 22px;
+        padding: 0.2rem 1rem;
         transition: .7s;
+        font-size: .8vw;
+        width: fit-content;
+
 
     }
-    .filter-btn:hover{
+    .filter_btn:hover{
         background-color: orangered;
         color: white;
         transition: .7s;
     }
+}
+
+@media (max-width: 600px) {
+
+    .filter-btns{
+        margin-top: 2rem;
+        // margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        .filter_btn{
+            font-size: 2vw;
+    
+        }
+        }
 }

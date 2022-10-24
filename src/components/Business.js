@@ -1,12 +1,13 @@
 import React from "react";
-import { AiOutlineClockCircle, AiOutlineRight } from "react-icons/ai";
+import { AiOutlineClockCircle, AiOutlineComment, AiOutlineRight } from "react-icons/ai";
+import { FaComment } from "react-icons/fa";
 
 import './styles/business.scss'
 
 export default function Business(){
-
+   
     return (
-            <div className="businessSection">
+            <div className="businessSection" >
             <header>
                 <h3>BUSINESS</h3>
                 <p>VIEW ALL <AiOutlineRight /> </p>
@@ -19,7 +20,7 @@ export default function Business(){
                 </div>
                 <div className="caption">
                     <p>Katie Diekman, 22, is looking forward to a "gap" year after graduating with a bachelor's degree from the University of Michigan in May. Convallis phe</p>
-                   <span><p>5</p> <p><AiOutlineClockCircle /> Oct 07, 2022</p></span> 
+                   <span><p><FaComment/> 5</p> <p><AiOutlineClockCircle /> Oct 07, 2022</p></span> 
                 </div>
 
             </div>

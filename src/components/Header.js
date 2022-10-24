@@ -9,7 +9,7 @@ import {
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import AuthenticationContext from "../pages/Login/AuthContext";
-import { logged } from "./DetailsLeftSection";
+// import { logged } from "./DetailsLeftSection";
 
 import "./styles/Header.scss";
   
@@ -38,28 +38,18 @@ export default function Headers() {
         };
   
   const [menuClick, setMenuclick] = useState(false);
-  // const [menuClick, setMenuclick] = useState(false);
   const HandleClick = () => {
-    
     setMenuclick((prev) => !prev);
-    // console.log(menuClick);
   };
-  // console.log(authctx.isLoggedIn)
-  // console.log(getLoggedIn)
-  // console.log(+getAdmin)
-  // console.log(authctx.is_admin)
-
-  // console.log(logged)
 
 
   return (
-    // <div className={menuClick ? "header shownavlist" : "header"}>
     <div className={menuClick ? "header shownavlist" : "header"}>
       <div className="wrapper">
         <div className="leftNav">
           <div className="menu" onClick={HandleClick}>
             <AiOutlineMenu />
-            MENU
+            <p className="menu_text">MENU</p>
           </div>
           <Link to="/" className="logo">
             ESSENTIAL

@@ -28,9 +28,9 @@ import Categories from "./pages/Dashboard/Categories";
 import UserPosts from "./pages/Dashboard/UserPosts";
 import Tech from "./components/Tech";
 
-// export const AppUrl = "https://essential.pythonanywhere.com";
+export const AppUrl = "https://essential.pythonanywhere.com";
 
-export const AppUrl = "http://192.168.1.131:8000";
+// export const AppUrl = "http://192.168.1.131:8000";
 
 function App() {
   const authctx = useContext(AuthenticationContext);
@@ -41,7 +41,7 @@ function App() {
   // console.log(getAdmin);
   // console.log(getLoggedIn);
   // console.log(typeof(getAdmin))
-  console.log(checkAdmin)
+  // console.log(checkAdmin)
   return (
     <>
       <BrowserRouter>

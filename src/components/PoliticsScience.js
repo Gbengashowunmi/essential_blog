@@ -6,7 +6,7 @@ import "./styles/PoliticsScience.scss";
 export default function PoliticsScience() {
   return (
     <div className="politics-science">
-      <span>
+      <span>  
         <h3>POLITICS</h3>
         <p>
           VIEW ALL
@@ -27,7 +27,7 @@ export default function PoliticsScience() {
           desfontSize=".8rem" datefontSize=".8rem"
         />
       </div>
-      <div className="science"></div>
+      {/* <div className="science"></div> */}
     </div>
   );
 }

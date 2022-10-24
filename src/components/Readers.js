@@ -1,5 +1,6 @@
 import React from "react";
 import { AiOutlineClockCircle, AiOutlineRight } from "react-icons/ai";
+import { FaComment } from "react-icons/fa";
 import "./styles/Reader.scss";
 
 export default function Readers() {
@@ -22,7 +23,7 @@ export default function Readers() {
           <p>Guest Posts, Busines</p>
           <h3>A Little Start-Up Entertains, One Story at a Time</h3>
           <span>
-            <p>Tien Nugyen</p> <p>2</p>
+            <p>Tien Nugyen</p> <p><FaComment/>  2</p>
             <p>
               <AiOutlineClockCircle /> May 21, 2015
             </p>
@@ -44,9 +45,8 @@ export default function Readers() {
           <p>Guest Posts, Busines</p>
           <h3>A Little Start-Up Entertains, One Story at a Time</h3>
           <span>
-            <p>Tien Nugyen</p> <p>2</p>{" "}
+            <p>Tien Nugyen</p> <p><FaComment/> 2</p>
             <p>
-              {" "}
               <AiOutlineClockCircle />
               May 21, 2015
             </p>
@@ -68,9 +68,8 @@ export default function Readers() {
           <p>Guest Posts, Busines</p>
           <h3>A Little Start-Up Entertains, One Story at a Time</h3>
           <span>
-            <p>Tien Nugyen</p> <p>2</p>{" "}
+            <p>Tien Nugyen</p> <p><FaComment/> 2</p>
             <p>
-              {" "}
               <AiOutlineClockCircle />
               May 21, 2015
             </p>
@@ -81,7 +80,6 @@ export default function Readers() {
             sinking bottom li..
           </p>
         </div>
-        {/* </div> */}
       </div>
     </div>
   );

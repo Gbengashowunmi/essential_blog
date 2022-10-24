@@ -28,7 +28,7 @@ export default function MainSection() {
        const isSticky = (e) => {
             const rightSection = document.querySelector('.rightSection');
             const scrollTop = window.scrollY;
-            console.log(window.scrollY);
+            // console.log(window.scrollY);
             scrollTop >= 1024 ? rightSection.classList.add('sticky') : rightSection.classList.remove('sticky');
         };
 
