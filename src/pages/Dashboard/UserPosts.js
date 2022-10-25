@@ -1,13 +1,3 @@
-// import React from "react";
-// import Dashboard from "./Dashboard";
-
-// export default function Posts() {
-//   return (
-//     <Dashboard>
-//       <div>Posts</div>
-//     </Dashboard>
-//   );
-// }
 
 import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineClockCircle, AiOutlineRight } from "react-icons/ai";
@@ -35,7 +25,7 @@ setLoading(true);
 
     const result = await fetch(`${AppUrl}/posts/`, {
       headers: {
-        "Authorization": `Token ${authctx.isLoggedIn}`
+        "Authorization": `Token ${getLoggedIn}`
       },
     })
     const data = await result.json()
@@ -61,7 +51,7 @@ setLoading(true);
     <Dashboard>
     <div className="reader">
     <span className="span">
-        <h3>My Recent Posts</h3>
+        <h3>My Posts</h3>
         {/* <p>
           VIEW ALL
           <AiOutlineRight />
@@ -88,15 +78,15 @@ setLoading(true);
             />
             <div className="read-info">
               <p>Guest Posts, Busines</p>
-              <h3>{userPost.title}</h3>
+              <h3>Title: {userPost.title}</h3>
               <span>
                 <p>{userPost.owner}</p> <p>2</p>
                 <p>
                   <AiOutlineClockCircle /> {userPost.created}
                 </p>
               </span>
-              <p>
-                {userPost.description.substring(0, 120)}
+              <p className="description" dangerouslySetInnerHTML={{__html:userPost.description}}>
+                {/* {userPost.description.substring(0, 120)} */}
               </p>
             </div>
             {/* </div> */}

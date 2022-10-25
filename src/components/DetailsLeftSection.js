@@ -63,12 +63,16 @@ const getUserId = window.localStorage.getItem('user_id');
         owner: authctx.first_name,
         post: +details.id,
         owner_id: authctx.userId,
-        // id: 120,
       },
     ]);
 
+    let all = comments.filter( comment => comment.post ===  +details.id )
+    
+    let alltwo = comments.map(comment => comment.post === +details.id)
+    // console.log(+details.id)
+
     console.log(comments);
-    console.log(userComments);
+    // console.log(userComments);
 
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Token ${getLoggedIn}`);
@@ -269,7 +273,7 @@ const data = await response.json()
                   </span>
 
                   <p className="comment">{comment.body}</p>
-                  <p className="comment">{userComments}</p>
+                  {/* <p className="comment">{userComments}</p> */}
 
 
                   <span>
@@ -287,6 +291,9 @@ const data = await response.json()
             );
           }
         })}
+
+
+
        
         <div className="input-comment">
           <h3>Enter Comment</h3>

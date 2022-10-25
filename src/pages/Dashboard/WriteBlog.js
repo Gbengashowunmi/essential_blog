@@ -50,7 +50,7 @@ console.log(value);
   const submitHandler = (e) => {
     e.preventDefault()
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", `Token ${authctx.isLoggedIn}`);
+    myHeaders.append("Authorization", `Token ${getLoggedIn}`);
     var formdata = new FormData();
     formdata.append("image", image);
     formdata.append("description", value);
@@ -78,7 +78,7 @@ console.log(value);
 
     <Dashboard>
     <div className="writeBlog">
-      <h3 className="header">Write You Blog here</h3>
+      <h3 className="header">Write Your Blog here</h3>
       <form className="blogpreview">
         <div className="setPost">
           <button className="preview">Preview</button>

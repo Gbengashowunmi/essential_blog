@@ -27,11 +27,11 @@ import Posts from "./pages/Dashboard/Posts";
 import Categories from "./pages/Dashboard/Categories";
 import UserPosts from "./pages/Dashboard/UserPosts";
 import Tech from "./components/Tech";
-import About from "./components/About";
+import About from "./components/About"; 
 
 export const AppUrl = "https://essential.pythonanywhere.com";
 
-// export const AppUrl = "http://192.168.1.131:8000";
+// export const AppUrl = "http://192.168.43.163:8000";
 
 function App() {
   const authctx = useContext(AuthenticationContext);

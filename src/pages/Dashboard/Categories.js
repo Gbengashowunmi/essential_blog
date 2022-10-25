@@ -61,7 +61,7 @@ fetchCategories()
 
       <form onSubmit={addCategory}>
         <input placeholder='enter Category' onChange={handleInput}/>
-        <button>Add category +</button>
+        <button className='add_category'>Add category +</button>
       </form>
     </div>
     </Dashboard>

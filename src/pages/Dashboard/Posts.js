@@ -16,20 +16,26 @@ import "../../components/styles/Reader.scss";
 import './DashboardStyles/Post.scss'
 import { AppUrl } from "../../App";
 import AuthenticationContext from "../Login/AuthContext";
-import { ThreeDots } from "react-loader-spinner";
+import { ProgressBar, ThreeDots } from "react-loader-spinner";
 import { Link } from "react-router-dom";
+import Modal from "../../components/Modal";
+// import Modal from "../../components/Modal";
 
 export default function Posts() {
 
   const authctx = useContext(AuthenticationContext)
   const [adminPosts, setAdminPosts] = useState([])
+  const [slug, setSlug] = useState('')
+  const [method, setMethod] = useState('')
   const [loading, setLoading] = useState(false)
+  const [publish, setPublish] = useState(false)
+  const [reject, setReject] = useState(false)
 
+  const getAdmin = window.localStorage.getItem('is_admin');
+  const getLoggedIn = window.localStorage.getItem('is_loggedIn');
   const fetchPostDetails = async()=> {
 setLoading(true);
 
-const getAdmin = window.localStorage.getItem('is_admin');
-const getLoggedIn = window.localStorage.getItem('is_loggedIn');
     const result = await fetch(`${AppUrl}/adminpost/`, {
       headers: {
         "Authorization": `Token ${getLoggedIn}`
@@ -49,13 +55,32 @@ const getLoggedIn = window.localStorage.getItem('is_loggedIn');
     fetchPostDetails();
   },[])
 
+// const handleReject =()=>{
+//   console.log('clicked');
+//   // setCheck(true)
+//     setPublish(prev => !prev)
+    
+// }
+
+const handleAction =(slug,method)=>{
+  setReject(prev=>!prev)
+  setSlug(slug)
+  setMethod(method)
+  // console.log(slug);
+}
+
+
 
 
   return (
     <Dashboard>
+{publish || reject? <Modal slug={slug} method={method}/>: ''}
+
     <div className="reader">
     <span className="span">
+
         <h3>Unpublished Posts</h3>
+
         {/* <p>
           VIEW ALL
           <AiOutlineRight />
@@ -74,7 +99,6 @@ const getLoggedIn = window.localStorage.getItem('is_loggedIn');
             wrapperClassName=""
             visible={true}
              />:
-<Link to={`/detail/${adminPost.slug}/posts`}   > 
 
             <div className="read">
             <img
@@ -82,36 +106,43 @@ const getLoggedIn = window.localStorage.getItem('is_loggedIn');
               alt=""
             />
             <div className="read-info">
-              <p>Guest Posts, Busines</p>
-              <h3>{adminPost.title}</h3>
+
+              <p>Guest Posts, Business</p>
+              <h3>Title: {adminPost.title}</h3>
               <span>
                 <p>{adminPost.owner}</p> <p>2</p>
                 <p>
                   <AiOutlineClockCircle /> {adminPost.created}
                 </p>
               </span>
-              <p className="description">
-                {adminPost.description.substring(0, 120)}
+              <p className="description" dangerouslySetInnerHTML={{__html:adminPost.description}}>
+                {/* {adminPost.description.substring(0, 120)} */}
               </p>
               <span className="pub_btns">   
-              <button>Read Post</button> 
-              <button className="approve">Publish</button> 
-              <button className="reject">Reject</button>
+            <Link to={`/detail/${adminPost.slug}/posts`}>
+            <button>Read Post</button>   
+              </Link>
+              <button className="approve" onClick={()=> handleAction(adminPost.slug, 'PUT')}>Publish
+                {/* {!publish? 'Publish' :<i class="fa-solid fa-check-double"></i>} */}
+              </button> 
+              <button className="reject" onClick={()=> handleAction(adminPost.slug, 'DELETE')}>Reject
+                {/* {!reject? 'Reject' :<i class="fa-solid fa-xmark"></i>} */}
+                </button>
             </span>
             </div>
             {/* </div> */}
 
           
           </div>
-          </Link>
           )
         })
       }
 
       {/* <div className="reader-container"> */}
-
       
     </div>
+
+
     </Dashboard>
   );
 }

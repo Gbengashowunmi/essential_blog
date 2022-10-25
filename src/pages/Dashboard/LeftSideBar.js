@@ -8,6 +8,8 @@ export default function LeftSideBar() {
   
   const getAdmin = window.localStorage.getItem('is_admin');
   const getLoggedIn = window.localStorage.getItem('is_loggedIn');
+  const checkAdmin = getAdmin==='true'?true:false
+
   // const handleClick = () => {
   //   setHighlight(prev => !prev);
   // };
@@ -35,7 +37,7 @@ export default function LeftSideBar() {
             <p>Home</p>
           </div>
         </Link>
-        {authctx.is_admin ?'': 
+        {checkAdmin ?'': 
         <Link to="/dashboard/create-post">
           <div className= "span" >
             <p>
@@ -46,7 +48,7 @@ export default function LeftSideBar() {
         </Link>}
 
 
-        {authctx.is_admin ? 
+        {checkAdmin ? 
         <Link to="/dashboard/posted-blogs">
           <div className="span">
             <p>
@@ -63,7 +65,7 @@ export default function LeftSideBar() {
             <p>Posts</p>
           </div>
         </Link>}
-        {authctx.is_admin ? 
+        {checkAdmin ? 
         <Link to="/dashboard/categories">  
         <div className="span">
           <p>
@@ -81,7 +83,7 @@ export default function LeftSideBar() {
         </div>
         }
         
-        {authctx.is_admin ? '':
+        {checkAdmin ? '':
         <Link to="/dashboard/media">
           <div className="span">
             <p>
@@ -91,7 +93,7 @@ export default function LeftSideBar() {
           </div>
         </Link>}
 
-        {authctx.is_admin ? '':
+        {checkAdmin ? '':
         <Link to="/dashboard/team">
           <div className="span">
             <p>
