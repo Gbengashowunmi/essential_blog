@@ -46,7 +46,7 @@ setTimeout(() => {
     return(
         <>
        <div className={!cancel&&method==='PUT'? "modal_overlay publish":!cancel&&method==='DELETE'?"modal_overlay": 'remove'}></div>
-      <div className={!cancel? "my_modal":'remove'}>
+      <div className={!cancel? "my_modal":'remove'} onClick={cancelBtn}>
       {!action?
         <>
             <p>Are you sure you want to {method==='PUT'? 'publish': 'Delete'} ?</p>
