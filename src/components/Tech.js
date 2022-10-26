@@ -18,15 +18,17 @@ export default function Tech() {
     useEffect(() => {
         fetchPost()
     }, [])
-
+// console.log(techNews[0].title);
   
   return (
     <div className='tech'>
     <span><h3>TECH</h3><p>VIEW ALL<AiOutlineRight /></p></span>
     <div className='tech-items'>
+        
 {techNews.map(eachNews =>{
     return (
-<div className='tech-item'>
+        <>
+        <div className='tech-item'>
 {/* <Link to={`detail/${eachNews.id}`}> <div className='image-container'> */}
 
 <Link to={`detail/${eachNews.slug}/posts`}   state={{data:'posts'}}> 
@@ -46,10 +48,11 @@ export default function Tech() {
                 <p><AiTwotoneCalendar/> {eachNews.created}</p>
             </div>
             </Link>
+{/* <div className='advert'>Place Your Advert here</div> */}
         </div>
+</>
     )
 })}
-         
     </div>
     </div>
   )

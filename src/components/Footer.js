@@ -1,8 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillFacebook, AiFillLinkedin, AiFillYoutube, AiOutlineTwitter } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { AppUrl } from "../App";
 import './styles/Footer.scss'
 export default function Footer() {
+
+  const [input, setInput] = useState({
+    email:''
+  });
+
+const postSubscribeEmail = async ()=>{
+  const response = await fetch(`${AppUrl}/newsletter/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(input),
+  });
+  const data = await response.json(input);
+
+  console.log(data);
+}
+
+const HandleInput = (e) => {
+  setInput({...input, [e.target.name]:e.target.value});
+};
+
+console.log(input);
+useEffect(() => {
+  postSubscribeEmail()
+},[])
+
+
+
+
   return (
     <div className="footer">
       <div className="footer-name">
@@ -27,8 +59,8 @@ export default function Footer() {
           <AiFillFacebook className="icon" />
         </div>
 
-        <form className="form">
-            <input placeholder="Enter Email" />
+        <form className="form" onSubmit={postSubscribeEmail}>
+            <input name="email" placeholder="Enter Email" onChange={HandleInput} type='email' />
             <button>Subscribe</button>
         </form>
       </div>

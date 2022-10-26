@@ -41,6 +41,8 @@ setLoading(true);
     wrapperClassName=""
     visible={true}
      />:
+     <>
+     <h1>Latest News Around The World</h1>
     <Carousel activeIndex={index} onSelect={handleSelect} className='carousel'>
       {carouselDetails.map((carouselDetail)=>{
       return(
@@ -66,5 +68,6 @@ setLoading(true);
       })}
 
     </Carousel>
+    </>
   );
 }

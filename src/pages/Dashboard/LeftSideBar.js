@@ -37,7 +37,7 @@ export default function LeftSideBar() {
             <p>Home</p>
           </div>
         </Link>
-        {checkAdmin ?'': 
+        
         <Link to="/dashboard/create-post">
           <div className= "span" >
             <p>
@@ -45,7 +45,7 @@ export default function LeftSideBar() {
             </p>
             <p>Write Blog</p>
           </div>
-        </Link>}
+        </Link>
 
 
         {checkAdmin ? 
@@ -100,6 +100,15 @@ export default function LeftSideBar() {
               <i class="fa-solid fa-people-group icon"></i>
             </p>
             <p>Team</p>
+          </div>
+        </Link>}
+        {checkAdmin ? '':
+        <Link to="/dashboard/terms">
+          <div className="span">
+            <p>
+              <i class="fa-solid fa-people-group icon"></i>
+            </p>
+            <p>Terms & Conditions</p>
           </div>
         </Link>}
       </div>

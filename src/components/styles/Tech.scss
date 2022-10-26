@@ -14,9 +14,12 @@
     color: orangered;
     h3 {
       font-weight: bolder;
+      font-size: larger;
     }
     p{
       transition: .7s;
+      font-size: small;
+
     }
     p:hover{
       cursor: pointer;
@@ -31,26 +34,25 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 1rem;
     align-items: center;
     width: 100%;
     height: fit-content;
     // border: 2px solid blue;
+    // .tech_main{
+    //   width: 20%;
+    //   height: 10rem;
+    // border: 2px solid blue;
+
+    // }
     .tech-item {
-      width: 27%;
+      width: 30%;
       height: 23rem;
       // border: 2px solid purple;
       margin-bottom: 1rem;
       box-shadow: 1px 1px 3px rgb(179, 179, 179);
-//       .overlay{
-//         // opacity: 0;
-//         background-color: rgba(255, 68, 0, 0.356);
-//         width: 100%;
-//         height:2rem;
-//         z-index: 100;
-//       }
-//       .tech-item:hover .overlay{
-// opacity: 1;
-//       }
+      transition: .5s;
+
       a{
         text-decoration: none;
         color: inherit;
@@ -106,6 +108,15 @@
         }
       }
     }
+    .tech-item:hover{
+      transform: scale(1.01);
+      transition: .5s;
+    }
+    // .advert{
+    //   width: 200px;
+    //   height: 10rem;
+    //   border: 2px solid blue;
+    // }
   }
 }
 

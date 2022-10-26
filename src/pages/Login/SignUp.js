@@ -73,7 +73,7 @@ export default function SignUp() {
 
     // console.log(authctx.isLoggedIn)
 
-    if (formValid) {
+    if (formValid) { 
       // setLoading(true);
 
       const response = await fetch(`${AppUrl}/signup/`, {

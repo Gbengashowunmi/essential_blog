@@ -41,6 +41,8 @@ export default function MainSection() {
     <>
     <Headers/>
     <div className="mainSection">
+    {/* <div className='advert'>Advert Placement</div> */}
+
       <div className="leftSection">
         <Outlet />
       </div>

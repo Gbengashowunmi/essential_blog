@@ -28,10 +28,11 @@ import Categories from "./pages/Dashboard/Categories";
 import UserPosts from "./pages/Dashboard/UserPosts";
 import Tech from "./components/Tech";
 import About from "./components/About"; 
+import Terms from "./pages/Dashboard/Terms";
 
 export const AppUrl = "https://essential.pythonanywhere.com";
 
-// export const AppUrl = "http://192.168.43.163:8000";
+// export const AppUrl = "http://192.168.0.167:8000";
 
 function App() {
   const authctx = useContext(AuthenticationContext);
@@ -72,6 +73,7 @@ function App() {
           <Route path="/dashboard/user-posts" element={<UserPosts />}></Route>
           <Route path="/dashboard/media" element={<Media />}></Route>
           <Route path="/dashboard/team" element={<Team />}></Route>
+          <Route path="/dashboard/terms" element={<Terms/>}></Route>
           <Route path="/detail/:id" element={<DetailsLeftSection />}></Route>
           <Route path="*" element={<LoginPage />} />
         </Routes>

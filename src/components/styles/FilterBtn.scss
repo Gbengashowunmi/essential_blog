@@ -4,19 +4,22 @@
     // background-color: rgb(73, 216, 216);
     margin-top: 2rem;
     // margin: auto;
+    // border: 1px solid orangered;
+
     display: flex;
     flex-wrap: wrap;
     // overflow-x: scroll;
     align-items: center;
     justify-content: left;
     gap: 1rem;
+margin: 2rem;
     
     .filter_btn{
         border-radius: 8px;
         border: 1px solid orangered;
-        padding: 0.2rem 1rem;
+        padding: 0.2rem .6rem;
         transition: .7s;
-        font-size: .8vw;
+        font-size: 1vw;
         width: fit-content;
 
 
@@ -58,7 +61,7 @@
         // justify-content: center;
         gap: 1rem;
         .filter_btn{
-            font-size: 2vw;
+            font-size: 4vw;
     
         }
         }

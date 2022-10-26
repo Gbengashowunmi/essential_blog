@@ -39,7 +39,7 @@ export default function Modal({slug,method}) {
 setTimeout(() => {
     setCancel(true)
 
-}, 1500);
+}, 1000);
 
       }
     //   console.log(slug);
@@ -50,9 +50,10 @@ setTimeout(() => {
       {!action?
         <>
             <p>Are you sure you want to {method==='PUT'? 'publish': 'Delete'} ?</p>
-            <span className="confirm_btns">
+            <form className="confirm_btns">
                 <button className="yes_btn" onClick={()=>postAction(slug, method)}>Yes</button>
-                <button className="cancel_btn" onClick={cancelBtn}>Cancel</button></span>
+                <button className="cancel_btn" onClick={cancelBtn}>Cancel</button>
+            </form>
             <Link to={`/detail/${slug}/posts`}><button className="read_again">Read Post Again</button></Link>
         </>:
             <p>{method==='PUT'? 'PUBLISHED ✔✔✔': 'DELETED ❌❌❌'}</p>
