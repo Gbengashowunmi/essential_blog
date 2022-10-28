@@ -28,12 +28,6 @@ const HandleInput = (e) => {
 };
 
 console.log(input);
-useEffect(() => {
-  postSubscribeEmail()
-},[])
-
-
-
 
   return (
     <div className="footer">

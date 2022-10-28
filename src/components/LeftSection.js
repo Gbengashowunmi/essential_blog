@@ -89,6 +89,9 @@ categories.forEach(category=>{
       <div hidden={showCategory !== "Politics"} ><PoliticsScience/></div> */}
       <Tech/>
       <Business />
+      <div className="left_ads">New ADVERTISEMENT
+    <i class="fa-solid fa-xmark cancel_btn"></i>
+      </div>
       <Fashion/>
       <Readers/>
       <Architect/>

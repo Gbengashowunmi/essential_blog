@@ -28,7 +28,7 @@ export default function Dashboard({children}) {
 
       <div className='dropdown-menus'>
         <div className='nav-menu' onClick={HandleNav}><AiOutlineMenu /></div>
-        <div className='profile-menu' onClick={HandleProfile}><AiOutlineMenu /></div>
+        <div className='profile-menu' onClick={HandleProfile}><i class="fa-regular fa-circle-user"></i></div>
       </div>
       <div className={navClick? 'left_layout show-sidebar':'left_layout'}><LeftSideBar/></div>
       <div className='center_layout'>{children}</div>

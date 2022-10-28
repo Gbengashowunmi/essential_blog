@@ -69,6 +69,7 @@ function App() {
 
           
           <Route path= {checkAdmin?"/dashboard/posted-blogs":"/dashboard/create-post"} element={checkAdmin?<Posts/>:<WriteBlog />}></Route>
+          <Route path="/dashboard/create-post" element={<WriteBlog />}></Route>
           <Route path="/dashboard/categories" element={<Categories />}></Route>
           <Route path="/dashboard/user-posts" element={<UserPosts />}></Route>
           <Route path="/dashboard/media" element={<Media />}></Route>

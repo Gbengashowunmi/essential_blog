@@ -19,9 +19,9 @@ export default function MainSection() {
         })}
         useEffect(() => {
           window.addEventListener('scroll', isSticky);
-          return () => {
-              window.removeEventListener('scroll', isSticky);
-          };
+          // return () => {
+          //     window.removeEventListener('scroll', isSticky);
+          // };
         });
         /* Method that will fix header after a specific scrollable */
              const isSticky = (e) => {
@@ -29,7 +29,20 @@ export default function MainSection() {
                   const scrollTop = window.scrollY;
                   // console.log(window.scrollY);
                   scrollTop >= 60 ? rightSection.classList.add('stick') : rightSection.classList.remove('stick');
+                  const ads = document.querySelector('.ads');
+                  scrollTop >= 300 ? ads.classList.add('show_ads') : ads.classList.remove('show_ads');
               };
+
+              const cancelBtn = ()=>{
+                const ads = document.querySelector('.ads');
+               ads.classList.remove('show_ads');
+              }
+            //  const displayAds = (e) => {
+            //       const ads = document.querySelector('.ads');
+            //       const scrollTop = window.scrollY;
+            //       // console.log(window.scrollY);
+            //       scrollTop >= 150 ? ads.classList.add('show_ads') : ads.classList.add('ads');
+            //   };
         
         // console.log(authctx.isLoggedIn);
 
@@ -52,6 +65,9 @@ export default function MainSection() {
       <button  onClick= {scrollUp} className="up-btn"><i class="fa-solid fa-circle-up"></i></button>
     </div>
     <Footer /> 
+    <div  className="ads">ADVERTISEMENT
+    <i class="fa-solid fa-xmark cancel_btn" onClick={cancelBtn}></i>
+    </div>
     </>
   );
 }

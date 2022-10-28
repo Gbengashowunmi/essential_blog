@@ -3,6 +3,9 @@ import { AiOutlineClockCircle, AiOutlineComment, AiOutlineRight } from "react-ic
 import { FaComment } from "react-icons/fa";
 
 import './styles/business.scss'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 
 export default function Business(){
    
@@ -14,7 +17,13 @@ export default function Business(){
             </header>
         <div className="business">
             
-            <div className="leftBusiness">
+            <div className="leftBusiness"
+                    data-aos="fade-right"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-once="false">
                 <div className="image">
                     <img src="https://3.bp.blogspot.com/-jklMpLEIDso/VZCtVKWiqcI/AAAAAAAAKow/UHLsIAf2xFk/s1600/business_short-interview_75K.jpg" alt="business"/>
                 </div>
@@ -24,7 +33,13 @@ export default function Business(){
                 </div>
 
             </div>
-            <div className="rightBusiness">
+            <div className="rightBusiness"
+                    data-aos="fade-left"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                    data-aos-once="false">
                 <div className="right">
                     <button>PEOPLE</button>
                     <h5>Save '£700' a year by outsourcing your household bills</h5>

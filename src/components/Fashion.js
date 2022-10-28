@@ -2,6 +2,12 @@ import React from "react";
 import { AiOutlineRight } from "react-icons/ai";
 import "./styles/Fashion.scss";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init({
+  offset: 150
+});
+
 export default function Fashion() {
   return (
     <div className="fashion-container">  
@@ -14,7 +20,13 @@ export default function Fashion() {
       </span>
 
       <div className="containers">
-        <div className="left-container">
+        <div className="left-container"
+                            data-aos="fade-right"
+                            data-aos-offset="200"
+                            data-aos-delay="90"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-out"
+                            data-aos-once="false">
           <div className="left-cont1">
             <div className="image-container">
               <img
@@ -54,7 +66,13 @@ export default function Fashion() {
             </div>
           </div>
         </div>
-        <div className="right-container">
+        <div className="right-container"
+                            data-aos="fade-left"
+                            data-aos-offset="200"
+                            data-aos-delay="50"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-out"
+                            data-aos-once="false">
           <div className="right-cont1">
             <div className="image-container">
               <img

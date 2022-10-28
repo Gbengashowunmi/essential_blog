@@ -7,12 +7,18 @@ import Dashboard from "./Dashboard";
 import AuthenticationContext from "../Login/AuthContext";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { Oval } from "react-loader-spinner";
+import { toast } from 'react-toastify'
+
 
 export default function WriteBlog() {
   const authctx = useContext(AuthenticationContext);
   const getAdmin = window.localStorage.getItem('is_admin');
   const getLoggedIn = window.localStorage.getItem('is_loggedIn');
   const [value, setValue] = useState('');
+  const [loading, setLoading] = useState(false)
+  // const [showBtn, setShowBtn] = useState(true)
+
 
 
   const [input, setInput] = useState({
@@ -35,17 +41,19 @@ console.log(value);
 
   const HandleInput = (e) => {
     setInput({
-      ...input,
-      [e.target.name]: e.target.value,
-    });
-
-    console.log(input);
+      ...input,[e.target.name]: e.target.value});
   };
+    // console.log(input.title);
+    //     if(input.title ===''){
+    //   setShowBtn(false)
+    // }
+
+    
     const HandleImage = (e) =>{
   setImage(e.target.files[0])
     }
     // console.log(image);
-    const [showBtn, setshowBtn] = useState(false);
+    // const [showBtn, setshowBtn] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -56,23 +64,28 @@ console.log(value);
     formdata.append("description", value);
     formdata.append("title", input.title);
 
-    if(input.title===''|| value===''|| image=== null){
-      setshowBtn(false)
-    }
-    else{
-      setshowBtn(true)
-    }
+
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
       body: formdata,
-      redirect: 'follow'
     };
 
+    setLoading(true)
+
     fetch(`${AppUrl}/posts/`, requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+      .then(response => response.json())
+      .then(result => {console.log(result)
+        toast.success('post sent for approval')})
+      .catch(error => {console.log('error', error)
+;
+    })
+      
+  
+      setTimeout(() => {
+        setLoading(false)
+      }, 1500);
+
   }
   return (
 
@@ -109,7 +122,7 @@ console.log(value);
         <label>Image:</label>
         <input name="file" type="file" onChange={HandleImage}/>
         {/* <button type="submit" className= {showBtn?"submit-btn" : " hide submit-btn"}>post</button> */}
-        <button type="submit" className="submit-btn" disabled={showBtn}>post</button>
+        <button type="submit" className="submit-btn" >  {loading? <Oval  height={20} width={20} color="white" margin="auto"  wrapperStyle={{}} wrapperClass="" visible={true} ariaLabel='oval-loading' secondaryColor="white" strokeWidth={2} />: 'Post'}</button>:
         
       {/* <div className={response? 'show':'hide'}>Post sent</div> */}
       </form>
