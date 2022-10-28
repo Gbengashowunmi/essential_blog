@@ -21,7 +21,7 @@ export default function Fashion() {
 
       <div className="containers">
         <div className="left-container"
-                            data-aos="fade-right"
+                            data-aos="fade-up"
                             data-aos-offset="200"
                             data-aos-delay="90"
                             data-aos-duration="1000"
@@ -67,7 +67,7 @@ export default function Fashion() {
           </div>
         </div>
         <div className="right-container"
-                            data-aos="fade-left"
+                            data-aos="fade-up"
                             data-aos-offset="200"
                             data-aos-delay="50"
                             data-aos-duration="1000"

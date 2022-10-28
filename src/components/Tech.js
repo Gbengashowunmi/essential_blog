@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { AiOutlineRight, AiTwotoneCalendar } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import { AppUrl } from '../App'
-import './styles/Tech.scss'
+import './styles/Tech.scss';
 
 export default function Tech() {
     const [techNews, setTechNews] = useState([])
