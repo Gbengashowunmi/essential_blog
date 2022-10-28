@@ -19,7 +19,9 @@ export default function WriteBlog() {
   const [loading, setLoading] = useState(false)
   // const [showBtn, setShowBtn] = useState(true)
 
+  let {editData} = useContext(AuthenticationContext)
 
+  console.log(editData)
 
   const [input, setInput] = useState({
     title: "",
@@ -90,6 +92,7 @@ console.log(value);
   return (
 
     <Dashboard>
+      {editData !== null && (
     <div className="writeBlog">
       <h3 className="header">Write Your Blog here</h3>
       <form className="blogpreview">
@@ -110,13 +113,14 @@ console.log(value);
         <label>Title:</label>
         <input
           name="title"
+          value={editData.title}
           placeholder="Enter Title"
           onChange={HandleInput}
           className="title"
         />
 
         <label>Description:</label>
-        <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} className="editorr"  placeholder="write your blog here"/>
+        <ReactQuill theme="snow" value={editData.description} onChange={setValue} modules={modules} className="editorr"  placeholder="write your blog here"/>
         {/* <textarea onChange={HandleInput} name="description" id="your-text" placeholder="Enter description"></textarea> */}
 
         <label>Image:</label>
@@ -132,6 +136,8 @@ console.log(value);
       CKEditor.replace("your-text")
       } */}
     </div>
+
+      )}
 
     </Dashboard>
   );

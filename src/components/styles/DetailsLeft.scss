@@ -133,6 +133,7 @@
           justify-content: left;
           gap: 1rem;
         }
+
         .del-comment{
           cursor: pointer;
           color: rgb(224, 48, 16);
@@ -190,6 +191,24 @@ button:hover{
   background-color: rgb(199, 58, 7);
 
 }
+      }
+    }
+    .edit_delete{
+      display: flex;
+      width: fit-content;
+      height: fit-content;
+      gap: 2rem;
+      margin-top: 1rem;
+      // background-color: red ;
+      .del_comment,.edit_comment{
+        cursor: pointer;
+        color: rgb(224, 48, 16);
+        // background-color: red;
+        border: none;
+        cursor: pointer;
+      }
+      .del_comment:hover,.edit_comment:hover{
+        color: rgb(173, 31, 6);
       }
     }
   }

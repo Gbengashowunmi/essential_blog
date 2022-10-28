@@ -8,6 +8,7 @@ import {
 } from "react-icons/ai";
 import { FaWhatsappSquare } from "react-icons/fa";
 import { useLocation, useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { AppUrl } from "../App";
 import AuthenticationContext from "../pages/Login/AuthContext";
 
@@ -114,7 +115,6 @@ const response = await fetch(`${AppUrl}/comments/${id}`,{
     "Content-Type": "application/json",
     Accept: "application/json",
     "Authorization": `Token ${getLoggedIn}`
-    
   },
   body: JSON.stringify(details.id),
 })
@@ -124,6 +124,55 @@ const data = await response.json()
 // window.reload();
 }
 
+const deletePost = async ()=>{
+  const response = await fetch(`${AppUrl}/posts/${details.slug}`, {
+    method: "DELETE",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "Authorization": `Token ${getLoggedIn}`
+    
+  },
+  body: JSON.stringify(details.slug)
+})
+const data = await response.json()
+
+console.log(data);
+
+setShowModal(true)
+}
+
+
+
+const [cancel, setCancel] = useState(false)
+const [showModal, setShowModal] = useState(false)
+
+const cancelBtn =()=>{
+    console.log('cancel');
+    setCancel(true)
+}
+
+const [edit, setEdit] = useState(false)
+
+
+let {detailsEdit} = useContext(AuthenticationContext)
+
+const editPost = async ()=>{
+  const response =  await fetch(`${AppUrl}/posts/${details.slug}`,{
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "Authorization": `Token ${getLoggedIn}`
+    },
+  // body: JSON.stringify(details.slug)
+  })
+const data = await response.json()
+  detailsEdit(data)
+  setEdit(true)
+  console.log(data)
+  
+}
   return (
     <div className="detailsLeftSection">
       <div className="headline">
@@ -277,11 +326,14 @@ const data = await response.json()
 
 
                   <span>
-                    {+getUserId === comment.owner_id ? (
+                    {+getUserId === comment.owner_id || getUserId  ===comment.owner_id? (
+                      <div className="edit_delete">
                       <p className="del-comment" onClick={() =>deleteComment(comment.id)}>
-                        Delete comment
+                        Delete
                         <i class="fa-sharp fa-solid fa-trash"></i>
                       </p>
+                      <p className="edit_comment">Edit <i class="fa-solid fa-pen-to-square"></i></p>
+                      </div>
                     ) : (
                       ""
                     )}
@@ -291,13 +343,9 @@ const data = await response.json()
             );
           }
         })}
-
-
-
-       
+      
         <div className="input-comment">
           <h3>Enter Comment</h3>
-
           <form className="comment-form" onSubmit={postComment}>
             <div className="input">
               <img
@@ -313,8 +361,38 @@ const data = await response.json()
             </div>
             <button>Post</button>
           </form>
+
         </div>
+
+          {+getUserId === details.owner_id || getUserId  === details.owner_id? (
+                      <div className="edit_delete">
+                      <p className="del_comment" onClick={deletePost}>
+                        Delete Post
+                        <i class="fa-sharp fa-solid fa-trash"></i>
+                      </p>
+                      <Link to="/dashboard/create-post"> 
+                      <p className="edit_comment" onClick={editPost}>Edit Post<i class="fa-solid fa-pen-to-square"></i></p>
+                      </Link>
+                      </div>
+                    ) : (
+                      ""
+                    )}
       </div>
+      {/* <>
+       <div className={showModal? "modal_overlay": 'remove'}></div>
+      <div className={showModal? "my_modal":'remove'} onClick={cancelBtn}>
+      {
+        <>
+            <form className="confirm_btns">
+                <button className="yes_btn" onClick={deletePost}>Yes</button>
+                <button className="cancel_btn" onClick={cancelBtn}>Cancel</button>
+            </form>
+        </>
+            // <p>{method==='PUT'? 'PUBLISHED ✔✔✔': 'DELETED ❌❌❌'}</p>
+        }
+        </div>
+        
+        </> */}
     </div>
   );
 }
