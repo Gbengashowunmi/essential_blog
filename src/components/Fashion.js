@@ -5,7 +5,7 @@ import "./styles/Fashion.scss";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init({
-  offset: 150
+  offset: 120
 });
 
 export default function Fashion() {

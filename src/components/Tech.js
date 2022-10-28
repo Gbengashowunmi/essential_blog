@@ -3,6 +3,11 @@ import { AiOutlineRight, AiTwotoneCalendar } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import { AppUrl } from '../App'
 import './styles/Tech.scss';
+import 'aos/dist/aos.css';
+import Aos from 'aos';
+Aos.init({
+  offset: 120
+});
 
 export default function Tech() {
     const [techNews, setTechNews] = useState([])
@@ -21,7 +26,13 @@ export default function Tech() {
 // console.log(techNews[0].title);
   
   return (
-    <div className='tech'>
+    <div className='tech'
+    data-aos="fade-up"
+                            data-aos-offset="200"
+                            data-aos-delay="90"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-out"
+                            data-aos-once="false">
     <span><h3>TECH</h3><p>VIEW ALL<AiOutlineRight /></p></span>
     <div className='tech-items'>
         
