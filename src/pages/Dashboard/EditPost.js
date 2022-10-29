@@ -12,23 +12,12 @@ import { toast } from 'react-toastify'
 import { useParams } from "react-router";
 
 
-export default function WriteBlog() {
+export default function EditPost() {
   const authctx = useContext(AuthenticationContext);
   const getAdmin = window.localStorage.getItem('is_admin');
   const getLoggedIn = window.localStorage.getItem('is_loggedIn');
   const [value, setValue] = useState('');
   const [loading, setLoading] = useState(false)
-
-  // const [showBtn, setShowBtn] = useState(true)
-
-  // let {editData} = useContext(AuthenticationContext)
-
-  // console.log(editData)
-
-  const [input, setInput] = useState({
-    title: "",
-    description: "",
-  });
 
   const modules = {
     toolbar: [
@@ -42,21 +31,27 @@ export default function WriteBlog() {
 }
 // console.log(value);
   const [image, setImage] = useState(null)
+  const [input, setInput] = useState();
+  
+  const params = useParams()
 
+  const fetchDetails = async ()=>{
+    const response = await fetch(`${AppUrl}/posts/${params.id}`)
+    let data = await response.json()
+    console.log(data);
+    setInput(data.title)
+  }
+
+useEffect(()=>{
+    fetchDetails()
+},[])
   const HandleInput = (e) => {
-    setInput({
-      ...input,[e.target.name]: e.target.value});
+    setInput(e.target.value);
   };
-    // console.log(input.title);
-    //     if(input.title ===''){
-    //   setShowBtn(false)
-    // }
 
     const HandleImage = (e) =>{
   setImage(e.target.files[0])
     }
-    // console.log(image);
-    // const [showBtn, setshowBtn] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -69,14 +64,14 @@ export default function WriteBlog() {
 
 
     var requestOptions = {
-      method: 'POST',
+      method: 'PUT',
       headers: myHeaders,
       body: formdata,
     };
 
     setLoading(true)
 
-    fetch(`${AppUrl}/posts/`, requestOptions)
+    fetch(`${AppUrl}/posts/${params.id}/`, requestOptions)
       .then(response => response.json())
       .then(result => {console.log(result)
         toast.success('post sent for approval')})
@@ -89,7 +84,6 @@ export default function WriteBlog() {
       }, 1500);
 
   }
-
 
   return (
 
@@ -115,10 +109,11 @@ export default function WriteBlog() {
         <label>Title:</label>
         <input
           name="title"
-          // value={editData.title}
+        
           placeholder="Enter Title"
           onChange={HandleInput}
           className="title"
+          value={input}
         />
 
         <label>Description:</label>
@@ -143,13 +138,13 @@ export default function WriteBlog() {
 
       {/* )} */}
 
-      <input
+      {/* <input
           name="title"
-          // value={editData.title}
           placeholder="Enter Title"
           onChange={HandleInput}
           className="title"
-        />
+          value={input}
+        /> */}
 
     </Dashboard>
   );

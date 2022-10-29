@@ -29,10 +29,11 @@ import UserPosts from "./pages/Dashboard/UserPosts";
 import Tech from "./components/Tech";
 import About from "./components/About"; 
 import Terms from "./pages/Dashboard/Terms";
+import EditPost from "./pages/Dashboard/EditPost";
 
-export const AppUrl = "https://essential.pythonanywhere.com";
+// export const AppUrl = "https://essential.pythonanywhere.com";
 
-// export const AppUrl = "http://192.168.0.167:8000";
+export const AppUrl = "http://192.168.43.163:8000";
 
 function App() {
   const authctx = useContext(AuthenticationContext);
@@ -70,6 +71,7 @@ function App() {
           
           <Route path= {checkAdmin?"/dashboard/posted-blogs":"/dashboard/create-post"} element={checkAdmin?<Posts/>:<WriteBlog />}></Route>
           <Route path="/dashboard/create-post" element={<WriteBlog />}></Route>
+          <Route path="/dashboard/edit-post/:id" element={<EditPost />}></Route>
           <Route path="/dashboard/categories" element={<Categories />}></Route>
           <Route path="/dashboard/user-posts" element={<UserPosts />}></Route>
           <Route path="/dashboard/media" element={<Media />}></Route>

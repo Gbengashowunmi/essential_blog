@@ -18,7 +18,7 @@ export const AuthenticationContextProvider = (props) =>{
     const [firsName, setFirstName] = useState()
     const [userId, setUserId] = useState()
     const [admin, setAdmin] = useState(false)
-    const [editData, setEditData] = useState(null)
+    // const [editData, setEditData] = useState(null)
 
     const loginHandler = (token,first_name, userId, admin)=>{
         setToken(token)
@@ -31,10 +31,10 @@ export const AuthenticationContextProvider = (props) =>{
     }
 
 
-    const detailsEdit = (details) => {
-        setEditData(details);
-        console.log(editData)
-    }
+    // const detailsEdit = (details) => {
+    //     setEditData(details);
+    //     console.log(editData)
+    // }
 
     // function tokenCheck (){
     //     if()
@@ -46,8 +46,8 @@ export const AuthenticationContextProvider = (props) =>{
         isLoggedIn: userIsLoggedIn,
         first_name:firsName,
         userId:userId,
-        detailsEdit,
-        editData,
+        // detailsEdit,
+        // editData,
         login:loginHandler,
         logout:logoutHandler,
         is_admin:admin

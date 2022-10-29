@@ -152,10 +152,10 @@ const cancelBtn =()=>{
     setCancel(true)
 }
 
-const [edit, setEdit] = useState(false)
+// const [edit, setEdit] = useState(false)
 
 
-let {detailsEdit} = useContext(AuthenticationContext)
+// let {detailsEdit} = useContext(AuthenticationContext)
 
 const editPost = async ()=>{
   const response =  await fetch(`${AppUrl}/posts/${details.slug}`,{
@@ -168,8 +168,8 @@ const editPost = async ()=>{
   // body: JSON.stringify(details.slug)
   })
 const data = await response.json()
-  detailsEdit(data)
-  setEdit(true)
+  // detailsEdit(data)
+  // setEdit(true)
   console.log(data)
   
 }
@@ -370,8 +370,10 @@ const data = await response.json()
                         Delete Post
                         <i class="fa-sharp fa-solid fa-trash"></i>
                       </p>
-                      <Link to="/dashboard/create-post"> 
-                      <p className="edit_comment" onClick={editPost}>Edit Post<i class="fa-solid fa-pen-to-square"></i></p>
+                      <Link to={`/dashboard/edit-post/${details.slug}`}> 
+                      <p className="edit_comment" 
+                      // onClick={editPost}
+                      >Edit Post<i class="fa-solid fa-pen-to-square"></i></p>
                       </Link>
                       </div>
                     ) : (
