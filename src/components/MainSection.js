@@ -5,6 +5,8 @@ import RightSection from "./RightSection/RightSection";
 // import DetailsLeftSection from "./DetailsLeftSection";
 import { Outlet } from "react-router";
 import Headers from "./Header";
+import {Helmet} from "react-helmet";
+
 import Footer from "./Footer";
 import AuthenticationContext from "../pages/Login/AuthContext";
 // import Dashboard from "../pages/Dashboard/Dashboard";

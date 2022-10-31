@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import {
   AiFillFacebook,
   AiFillTwitterSquare,
@@ -12,16 +13,14 @@ import { Link } from "react-router-dom";
 import { AppUrl } from "../App";
 import AuthenticationContext from "../pages/Login/AuthContext";
 
-
 import "./styles/DetailsLeft.scss";
 
 export default function DetailsLeftSection() {
-  
   const location = useLocation();
-  const getLoggedIn = window.localStorage.getItem('is_loggedIn');
-  const getAdmin = window.localStorage.getItem('is_admin');
-  const checkAdmin = getAdmin==='true'?true:false
-const getUserId = window.localStorage.getItem('user_id');
+  const getLoggedIn = window.localStorage.getItem("is_loggedIn");
+  const getAdmin = window.localStorage.getItem("is_admin");
+  const checkAdmin = getAdmin === "true" ? true : false;
+  const getUserId = window.localStorage.getItem("user_id");
 
   // const [form, setForm] = useState(false);
   const [details, setDetails] = useState([]);
@@ -29,20 +28,18 @@ const getUserId = window.localStorage.getItem('user_id');
   const [userComments, setUserComments] = useState("");
   const authctx = useContext(AuthenticationContext);
 
-  const handleInput = (e)=>{
-     setUserComments(e.target.value)
-     console.log(userComments);
-  }
+  const handleInput = (e) => {
+    setUserComments(e.target.value);
+    console.log(userComments);
+  };
   // console.log(logged);
   const params = useParams();
   const fetchComments = async () => {
     const result = await fetch(`${AppUrl}/comments/`);
     const data = await result.json();
     setComments(data);
-    // console.log(data); 
+    // console.log(data);
   };
-
-
 
   const id = params.id;
   const name = params.name;
@@ -67,9 +64,9 @@ const getUserId = window.localStorage.getItem('user_id');
       },
     ]);
 
-    let all = comments.filter( comment => comment.post ===  +details.id )
-    
-    let alltwo = comments.map(comment => comment.post === +details.id)
+    let all = comments.filter((comment) => comment.post === +details.id);
+
+    let alltwo = comments.map((comment) => comment.post === +details.id);
     // console.log(+details.id)
 
     console.log(comments);
@@ -97,8 +94,7 @@ const getUserId = window.localStorage.getItem('user_id');
 
           .catch((error) => console.log("error", error))
       : alert("please log in to comment");
-          setUserComments("")
-
+    setUserComments("");
   };
 
   useEffect(() => {
@@ -108,73 +104,72 @@ const getUserId = window.localStorage.getItem('user_id');
 
   //DELETE COMMENT FUNCTION
 
-  const deleteComment = async (id)=>{
-const response = await fetch(`${AppUrl}/comments/${id}`,{
-  method: "DELETE",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    "Authorization": `Token ${getLoggedIn}`
-  },
-  body: JSON.stringify(details.id),
-})
-const data = await response.json()
-// console.log(data);
-  
-// window.reload();
-}
+  const deleteComment = async (id) => {
+    const response = await fetch(`${AppUrl}/comments/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Token ${getLoggedIn}`,
+      },
+      body: JSON.stringify(details.id),
+    });
+    const data = await response.json();
+    // console.log(data);
 
-const deletePost = async ()=>{
-  const response = await fetch(`${AppUrl}/posts/${details.slug}`, {
-    method: "DELETE",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    "Authorization": `Token ${getLoggedIn}`
-    
-  },
-  body: JSON.stringify(details.slug)
-})
-const data = await response.json()
+    // window.reload();
+  };
 
-console.log(data);
+  const deletePost = async () => {
+    const response = await fetch(`${AppUrl}/posts/${details.slug}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Token ${getLoggedIn}`,
+      },
+      body: JSON.stringify(details.slug),
+    });
+    const data = await response.json();
 
-setShowModal(true)
-}
+    console.log(data);
 
+    setShowModal(true);
+  };
 
+  const [cancel, setCancel] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-const [cancel, setCancel] = useState(false)
-const [showModal, setShowModal] = useState(false)
+  const cancelBtn = () => {
+    console.log("cancel");
+    setCancel(true);
+  };
 
-const cancelBtn =()=>{
-    console.log('cancel');
-    setCancel(true)
-}
+  // const [edit, setEdit] = useState(false)
 
-// const [edit, setEdit] = useState(false)
+  // let {detailsEdit} = useContext(AuthenticationContext)
 
-
-// let {detailsEdit} = useContext(AuthenticationContext)
-
-const editPost = async ()=>{
-  const response =  await fetch(`${AppUrl}/posts/${details.slug}`,{
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      "Authorization": `Token ${getLoggedIn}`
-    },
-  // body: JSON.stringify(details.slug)
-  })
-const data = await response.json()
-  // detailsEdit(data)
-  // setEdit(true)
-  console.log(data)
-  
-}
+  const editPost = async () => {
+    const response = await fetch(`${AppUrl}/posts/${details.slug}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Token ${getLoggedIn}`,
+      },
+      // body: JSON.stringify(details.slug)
+    });
+    const data = await response.json();
+    // detailsEdit(data)
+    // setEdit(true)
+    console.log(data);
+  };
   return (
     <div className="detailsLeftSection">
+      <Helmet>
+        <title> category</title>
+        <meta name={details.description} content="Helmet application" />
+      </Helmet>
       <div className="headline">
         <img src={details?.image} alt="details-img" />
         <div className="navigate">
@@ -324,15 +319,20 @@ const data = await response.json()
                   <p className="comment">{comment.body}</p>
                   {/* <p className="comment">{userComments}</p> */}
 
-
                   <span>
-                    {+getUserId === comment.owner_id || getUserId  ===comment.owner_id? (
+                    {+getUserId === comment.owner_id ||
+                    getUserId === comment.owner_id ? (
                       <div className="edit_delete">
-                      <p className="del-comment" onClick={() =>deleteComment(comment.id)}>
-                        Delete
-                        <i class="fa-sharp fa-solid fa-trash"></i>
-                      </p>
-                      <p className="edit_comment">Edit <i class="fa-solid fa-pen-to-square"></i></p>
+                        <p
+                          className="del-comment"
+                          onClick={() => deleteComment(comment.id)}
+                        >
+                          Delete
+                          <i class="fa-sharp fa-solid fa-trash"></i>
+                        </p>
+                        <p className="edit_comment">
+                          Edit <i class="fa-solid fa-pen-to-square"></i>
+                        </p>
                       </div>
                     ) : (
                       ""
@@ -343,7 +343,7 @@ const data = await response.json()
             );
           }
         })}
-      
+
         <div className="input-comment">
           <h3>Enter Comment</h3>
           <form className="comment-form" onSubmit={postComment}>
@@ -361,31 +361,33 @@ const data = await response.json()
             </div>
             <button>Post</button>
           </form>
-
         </div>
 
-          {+getUserId === details.owner_id || getUserId  === details.owner_id? (
-                      <div className="edit_delete">
-                      <p className="del_comment" onClick={deletePost}>
-                        Delete Post
-                        <i class="fa-sharp fa-solid fa-trash"></i>
-                      </p>
-                      <Link to={`/dashboard/edit-post/${details.slug}`}> 
-                      <p className="edit_comment" 
-                      // onClick={editPost}
-                      >Edit Post<i class="fa-solid fa-pen-to-square"></i></p>
-                      </Link>
-                      </div>
-                    ) : (
-                      ""
-                    )}
+        {+getUserId === details.owner_id || getUserId === details.owner_id ? (
+          <div className="edit_delete">
+            <p className="del_comment" onClick={deletePost}>
+              Delete Post
+              <i class="fa-sharp fa-solid fa-trash"></i>
+            </p>
+            <Link to={`/dashboard/edit-post/${details.slug}`}>
+              <p
+                className="edit_comment"
+                // onClick={editPost}
+              >
+                Edit Post<i class="fa-solid fa-pen-to-square"></i>
+              </p>
+            </Link>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       {/* <>
        <div className={showModal? "modal_overlay": 'remove'}></div>
       <div className={showModal? "my_modal":'remove'} onClick={cancelBtn}>
       {
         <>
-            <form className="confirm_btns">
+            <form className="confirm_btns"> 
                 <button className="yes_btn" onClick={deletePost}>Yes</button>
                 <button className="cancel_btn" onClick={cancelBtn}>Cancel</button>
             </form>

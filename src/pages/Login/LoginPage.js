@@ -73,15 +73,13 @@ if (data.failure) {
 // data.respone?
 
 if (data.token) {
-  authctx.login(data.token, data.first_name, data.id, data.is_admin);
+  authctx.login(data.token, data.first_name, data.id, data.is_admin, data.email);
   window.localStorage.setItem('is_loggedIn', data.token);
   window.localStorage.setItem('is_admin', data.is_admin);
   window.localStorage.setItem('first_name', data.first_name);
   window.localStorage.setItem('user_id', data.id);
-  // window.localStorage.setItem('first_name', data.first_name);
+  window.localStorage.setItem('email', data.email);
   const firstName = window.localStorage.getItem('first_name');
-
-
   toast.success(`Welcome back ${firstName}😀`)
   navigate("/");
 }
