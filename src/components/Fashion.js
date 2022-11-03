@@ -4,6 +4,7 @@ import "./styles/Fashion.scss";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from "react-router-dom";
 AOS.init({
   offset: 120
 });
@@ -13,10 +14,13 @@ export default function Fashion() {
     <div className="fashion-container">  
       <span>
         <h3>FASHION</h3>
-        <p>
+        <Link to="/post">
+
+         <p>
           VIEW ALL
           <AiOutlineRight />
         </p>
+        </Link>
       </span>
 
       <div className="containers">
@@ -40,18 +44,7 @@ export default function Fashion() {
             </div>
           </div>
 
-          <div className="left-cont2">
-            <div className="image-container">
-              <img
-                src="https://4.bp.blogspot.com/-G8KpjvsQrUI/VZDtBxP9xxI/AAAAAAAAKq8/Fbfs8Kxrw_M/s1600/fasion_autumn-fire_101K.jpg"
-                alt=""
-              />
-              <div className="button">
-                <button>Future</button>
-                <h5>Take a look into the future of technology</h5>
-              </div>
-            </div>
-          </div>
+
 
           <div className="left-cont3">
             <div className="image-container">
@@ -99,18 +92,7 @@ export default function Fashion() {
             </div>
           </div>
 
-          <div className="right-cont3">
-            <div className="image-container">
-              <img
-                src="https://3.bp.blogspot.com/-teOCEZ9lnbc/VZDygUj6fmI/AAAAAAAAKrg/EdgzRANztyc/s450-rw/fasion_backstage-avantgarde_125K.webp"
-                alt=""
-              />
-              <div className="button">
-                <button>Future</button>
-                <h5>Take a look into the future of technology</h5>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>

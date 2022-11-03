@@ -20,14 +20,14 @@ const postSubscribeEmail = async ()=>{
   });
   const data = await response.json(input);
 
-  console.log(data);
+  // console.log(data);
 }
 
 const HandleInput = (e) => {
   setInput({...input, [e.target.name]:e.target.value});
 };
 
-console.log(input);
+// console.log(input);
 
   return (
     <div className="footer">

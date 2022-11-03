@@ -1,5 +1,6 @@
 import React from "react";
 import { AiOutlineRight } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import CustomCard from "./CustomCard";
 import "./styles/PoliticsScience.scss";
 
@@ -8,10 +9,15 @@ export default function PoliticsScience() {
     <div className="politics-science">
       <span>  
         <h3>POLITICS</h3>
+        <Link to="/post">
+
+
         <p>
           VIEW ALL
           <AiOutlineRight />
         </p>
+        </Link>
+
       </span>
       <div className="politics">
         <CustomCard

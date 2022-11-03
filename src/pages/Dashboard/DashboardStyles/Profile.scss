@@ -23,6 +23,7 @@
       height: 100%;
       border-radius: 50%;
       border: 1px solid white;
+      object-fit: cover;
     }
   }
   button {
@@ -34,4 +35,16 @@
     color: white;
     box-shadow: 2px 2px 5px #03033a, -2px -2px 5px #2121df;
   }
+}
+
+@media (max-width:790px) {
+  .profile {
+    width: 100%;
+    padding: 3rem 4rem;
+    .image {
+      width: 30vw;
+      height: 30vw;
+    }
+  }
+  
 }

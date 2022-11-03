@@ -1,8 +1,6 @@
-// import { CKEditor } from "@ckeditor/ckeditor5-react";
 import React, { useContext, useEffect, useState } from "react";
 import { AppUrl } from "../../App";
 import "./DashboardStyles/WriteBlog.scss";
-import Editor from "./Editor";
 import Dashboard from "./Dashboard";
 import AuthenticationContext from "../Login/AuthContext";
 import ReactQuill from 'react-quill';
@@ -29,7 +27,6 @@ export default function EditPost() {
         ['link', 'image'],
     ]
 }
-// console.log(value);
   const [image, setImage] = useState(null)
   const [input, setInput] = useState();
   
@@ -88,7 +85,6 @@ useEffect(()=>{
   return (
 
     <Dashboard>
-      {/* {editData !== null && ( */}
     <div className="writeBlog">
       <h3 className="header">Write Your Blog here</h3>
       <form className="blogpreview">
@@ -118,33 +114,18 @@ useEffect(()=>{
 
         <label>Description:</label>
         <ReactQuill theme="snow" 
-        // value={editData.description}`
          onChange={setValue} modules={modules} className="editorr"  placeholder="write your blog here"/>
-        {/* <textarea onChange={HandleInput} name="description" id="your-text" placeholder="Enter description"></textarea> */}
 
         <label>Image:</label>
         <input name="file" type="file" onChange={HandleImage}/>
-        {/* <button type="submit" className= {showBtn?"submit-btn" : " hide submit-btn"}>post</button> */}
         <button type="submit" className="submit-btn" >  {loading? <Oval  height={20} width={20} color="white" margin="auto"  wrapperStyle={{}} wrapperClass="" visible={true} ariaLabel='oval-loading' secondaryColor="white" strokeWidth={2} />: 'Post'}</button>:
         
-      {/* <div className={response? 'show':'hide'}>Post sent</div> */}
       </form>
 
-      {/* {
-      
-      CKEditor.replace("your-text")
-      } */}
+   
     </div>
 
-      {/* )} */}
-
-      {/* <input
-          name="title"
-          placeholder="Enter Title"
-          onChange={HandleInput}
-          className="title"
-          value={input}
-        /> */}
+ 
 
     </Dashboard>
   );

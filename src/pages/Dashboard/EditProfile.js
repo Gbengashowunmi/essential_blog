@@ -9,7 +9,9 @@ const EditProfile = () => {
   const [first_name, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [image, setImage] = useState(null);
+  const [Edittedimage, setEdittedimage] = useState(null);
   const [id, setId] = useState("");
   const getLoggedIn = window.localStorage.getItem("is_loggedIn");
 
@@ -26,6 +28,7 @@ const EditProfile = () => {
     setImage(data.profile.image);
     setEmail(data.email);
     setId(data.profile.id);
+    setUsername(data.profile.username);
     // setName(data.first_name);
   };
 
@@ -38,8 +41,8 @@ const EditProfile = () => {
     var myHeaders = new Headers();
     myHeaders.append("Authorization", `Token ${getLoggedIn}`);
     var formdata = new FormData();
-    formdata.append("image", image);
-    // formdata.append("username", username);
+    formdata.append("image", Edittedimage);
+    formdata.append("username", username);
     formdata.append("user", getUserId);
 
     var requestOptions = {
@@ -54,15 +57,11 @@ const EditProfile = () => {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        // toast.success('post sent for approval')
+        // toast.success('Details Updated')
       })
       .catch((error) => {
         console.log("error", error);
       });
-
-    //   setTimeout(() => {
-    //     setLoading(false)
-    //   }, 1500);
   };
 
   const HandleFirstNameInput = (e) => {
@@ -74,18 +73,20 @@ const EditProfile = () => {
   const HandleEmail = (e) => {
     setEmail(e.target.value);
   };
+  const HandleUsername = (e) => {
+    setUsername(e.target.value);
+    // console.log(username);
+  };
 
   const changeImage = (e) => {
-    setImage(e.target.files[0]);
-    console.log(e.target.files[0].name);
-
-    // if (e.target.files && e.target.files[0]) {
-    //   let reader = new FileReader();
-    //   reader.onload = (e) => {
-    //     setImage(e.target.result);
-    //   };
-    //   reader.readAsDataURL(e.target.files[0]);
-    // }
+    if (e.target.files && e.target.files[0]) {
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        setImage(e.target.result);
+      };
+      reader.readAsDataURL(e.target.files[0]);
+    }
+    setEdittedimage(e.target.files[0]);
   };
   return (
     <Dashboard>
@@ -94,10 +95,11 @@ const EditProfile = () => {
           <div className="image">
             <img src={image} />
             <button>
-              <input onChange={changeImage} type="file" placeholder={image} />
+              <input onChange={changeImage} type="file" />
             </button>
+            <p>click to change image</p>
           </div>
-          <h5>username: {first_name}</h5>
+          <h5>username: {username}</h5>
         </div>
         <div className="right_sect">
           <h3>Profile Settings</h3>
@@ -141,20 +143,9 @@ const EditProfile = () => {
               label="username"
               variant="outlined"
               className="input"
+              onChange={HandleUsername}
+              value={username}
             />
-            <TextField
-              id="outlined-basic"
-              label="password"
-              variant="outlined"
-              className="input"
-            />
-            <TextField
-              id="outlined-basic"
-              label="confirm password"
-              variant="outlined"
-              className="input"
-            />
-
             <Fab variant="extended" className="btn" type="submit">
               Update Profile
             </Fab>

@@ -1,8 +1,6 @@
-// import { CKEditor } from "@ckeditor/ckeditor5-react";
 import React, { useContext, useEffect, useState } from "react";
 import { AppUrl } from "../../App";
 import "./DashboardStyles/WriteBlog.scss";
-import Editor from "./Editor";
 import Dashboard from "./Dashboard";
 import AuthenticationContext from "../Login/AuthContext";
 import ReactQuill from 'react-quill';
@@ -19,12 +17,6 @@ export default function WriteBlog() {
   const [value, setValue] = useState('');
   const [loading, setLoading] = useState(false)
 
-  // const [showBtn, setShowBtn] = useState(true)
-
-  // let {editData} = useContext(AuthenticationContext)
-
-  // console.log(editData)
-
   const [input, setInput] = useState({
     title: "",
     description: "",
@@ -40,23 +32,16 @@ export default function WriteBlog() {
         ['link', 'image'],
     ]
 }
-// console.log(value);
   const [image, setImage] = useState(null)
 
   const HandleInput = (e) => {
     setInput({
       ...input,[e.target.name]: e.target.value});
   };
-    // console.log(input.title);
-    //     if(input.title ===''){
-    //   setShowBtn(false)
-    // }
 
     const HandleImage = (e) =>{
   setImage(e.target.files[0])
     }
-    // console.log(image);
-    // const [showBtn, setshowBtn] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -94,7 +79,6 @@ export default function WriteBlog() {
   return (
 
     <Dashboard>
-      {/* {editData !== null && ( */}
     <div className="writeBlog">
       <h3 className="header">Write Your Blog here</h3>
       <form className="blogpreview">
@@ -115,7 +99,6 @@ export default function WriteBlog() {
         <label>Title:</label>
         <input
           name="title"
-          // value={editData.title}
           placeholder="Enter Title"
           onChange={HandleInput}
           className="title"
@@ -123,29 +106,20 @@ export default function WriteBlog() {
 
         <label>Description:</label>
         <ReactQuill theme="snow" 
-        // value={editData.description}`
          onChange={setValue} modules={modules} className="editorr"  placeholder="write your blog here"/>
-        {/* <textarea onChange={HandleInput} name="description" id="your-text" placeholder="Enter description"></textarea> */}
 
         <label>Image:</label>
         <input name="file" type="file" onChange={HandleImage}/>
-        {/* <button type="submit" className= {showBtn?"submit-btn" : " hide submit-btn"}>post</button> */}
         <button type="submit" className="submit-btn" >  {loading? <Oval  height={20} width={20} color="white" margin="auto"  wrapperStyle={{}} wrapperClass="" visible={true} ariaLabel='oval-loading' secondaryColor="white" strokeWidth={2} />: 'Post'}</button>:
         
-      {/* <div className={response? 'show':'hide'}>Post sent</div> */}
       </form>
 
-      {/* {
-      
-      CKEditor.replace("your-text")
-      } */}
+   
     </div>
 
-      {/* )} */}
 
       <input
           name="title"
-          // value={editData.title}
           placeholder="Enter Title"
           onChange={HandleInput}
           className="title"

@@ -5,6 +5,7 @@ import { FaComment } from "react-icons/fa";
 import './styles/business.scss'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from "react-router-dom";
 AOS.init();
 
 export default function Business(){
@@ -13,7 +14,10 @@ export default function Business(){
             <div className="businessSection" >
             <header>
                 <h3>BUSINESS</h3>
+        <Link to="/post">
+
                 <p>VIEW ALL <AiOutlineRight /> </p>
+        </Link>
             </header>
         <div className="business">
             

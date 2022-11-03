@@ -32,10 +32,11 @@ import Terms from "./pages/Dashboard/Terms";
 import EditPost from "./pages/Dashboard/EditPost";
 import Profile from "./pages/Dashboard/Profile";
 import EditProfile from "./pages/Dashboard/EditProfile";
+import ViewAll from "./components/ViewAll";
 
-export const AppUrl = "https://essential.pythonanywhere.com";
+// export const AppUrl = "https://essential.pythonanywhere.com";
 
-// export const AppUrl = "http://192.168.0.167:8000";
+export const AppUrl = "http://192.168.0.167:8000";
 
 function App() {
   const authctx = useContext(AuthenticationContext);
@@ -59,6 +60,7 @@ function App() {
             {/* <Route path="/Tech" element={<Tech />}></Route> */}
           
             <Route path="/detail/:id/:name" element={<DetailsLeftSection />}></Route>
+            <Route path="/post" element={<ViewAll />}></Route>
           </Route>
 
           <Route path="login" element={<LoginPage />}></Route>

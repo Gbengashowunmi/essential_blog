@@ -1,6 +1,7 @@
 import React from "react";
 import { AiOutlineClockCircle, AiOutlineRight } from "react-icons/ai";
 import { FaComment } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import CustomCard from "./CustomCard";
 import "./styles/Architect.scss";
 export default function Architect() {
@@ -8,15 +9,20 @@ export default function Architect() {
     <div className="architect-container">
       <span>
         <h3>ARCHITECT</h3>
+        <Link to="/post">
+
         <p>
           VIEW ALL
           <AiOutlineRight />
         </p>
+
+        </Link>
+
       </span>
       <div className="architect">
         <div className="image-container">
           <img
-            src="https://4.bp.blogspot.com/-G8KpjvsQrUI/VZDtBxP9xxI/AAAAAAAAKq8/Fbfs8Kxrw_M/s1600/fasion_autumn-fire_101K.jpg"
+            src="https://3.bp.blogspot.com/-OfTnEDq22WM/VZDuM5yGGZI/AAAAAAAAKrE/2bgsYN5u9Gk/s450-rw/fasion_hijab-collection_75K.webp"
             alt=""
           />
           <div className="button">

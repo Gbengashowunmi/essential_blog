@@ -10,6 +10,8 @@ const Profile = () => {
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [image, setImage] = useState('')
+  const [username, setUsername] = useState("");
+
 
   const firstName = window.localStorage.getItem('first_name');
   const getUserId = window.localStorage.getItem("user_id");
@@ -23,6 +25,8 @@ const Profile = () => {
     setLastName(data.profile.last_name);
     setImage(data.profile.image);
     setEmail(data.email);
+    setUsername(data.profile.username);
+
     // setName(data.first_name);
   };
 
@@ -36,11 +40,10 @@ const Profile = () => {
     <Dashboard>
       <div className="profile">
         <div className="image"><img src={image} alt="user"/></div>
-        <h3>UserName</h3>
-        <h4>First name:{firstName}</h4>
-        <h4>last name:{lastName}</h4>
+        <h5>Username: {username}</h5>
+        <h6>First name:  {firstName}</h6>
+        <h6>last name:  {lastName}</h6>
         <hr />
-        <p>user occupation</p>
         <p>Email: {email}</p>
 
         <Link to="/dashboard/edit_profile">   <button>Edit Profile</button></Link>

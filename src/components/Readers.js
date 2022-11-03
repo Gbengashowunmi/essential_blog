@@ -1,6 +1,7 @@
 import React from "react";
 import { AiOutlineClockCircle, AiOutlineRight } from "react-icons/ai";
 import { FaComment } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./styles/Reader.scss";
 
 export default function Readers() {
@@ -8,10 +9,16 @@ export default function Readers() {
     <div className="reader">
       <span className="span">
         <h3>BY READERS</h3>
+
+        <Link to="/post">
+
         <p>
           VIEW ALL
           <AiOutlineRight />
         </p>
+
+        </Link>
+
       </span>
       {/* <div className="reader-container"> */}
       <div className="read">

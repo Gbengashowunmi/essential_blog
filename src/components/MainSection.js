@@ -57,19 +57,24 @@ export default function MainSection() {
     <Headers/>
     <div className="mainSection">
     {/* <div className='advert'>Advert Placement</div> */}
-
+{/* <div className="left_right_wrapper"> */}
       <div className="leftSection">
         <Outlet />
       </div>
+      {/* <div className="ads_vertical"></div> */}
       <div className="rightSection">
         <RightSection />
       </div>
-      <button  onClick= {scrollUp} className="up-btn"><i class="fa-solid fa-circle-up"></i></button>
+      {/* </div> */}
+      <button  onClick= {scrollUp} className="up-btn"><i className="fa-solid fa-circle-up"></i></button>
     </div>
+    <div className="footer">
+
     <Footer /> 
-    <div  className="ads">ADVERTISEMENT
-    <i class="fa-solid fa-xmark cancel_btn" onClick={cancelBtn}></i>
     </div>
+    {/* <div  className="ads">ADVERTISEMENT
+    <i className="fa-solid fa-xmark cancel_btn" onClick={cancelBtn}></i>
+    </div> */}
     </>
   );
 }

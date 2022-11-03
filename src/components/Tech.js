@@ -11,14 +11,14 @@ Aos.init({
   offset: 120,
 });
 
-export default function Tech() {
+export default function Tech({category}) {
   const [techNews, setTechNews] = useState([]);
 
   const fetchPost = async () => {
     const response = await fetch(`${AppUrl}/posts/`);
     const data = await response.json();
     setTechNews(data);
-    console.log(data);
+    // console.log(data);
   };
 
   useEffect(() => {
@@ -29,6 +29,7 @@ export default function Tech() {
   return (
     <div
       className="tech"
+      // category={category}
       data-aos="fade-up"
       data-aos-offset="200"
       data-aos-delay="90"
@@ -38,16 +39,19 @@ export default function Tech() {
     >
       <span>
         <h3>TECH</h3>
-        <p>
+        <Link to="/post">
+          <p>
           VIEW ALL
           <AiOutlineRight />
         </p>
+        </Link>
       </span>
       <div className="tech-items">
         {techNews.map((eachNews) => {
+          // console.log(eachNews);
           return (
             <>
-              <div className="tech-item">
+              <div className="tech-item" key={eachNews.id}>
                 {/* <Link to={`detail/${eachNews.id}`}> <div className='image-container'> */}
 
                 <Link
@@ -65,8 +69,8 @@ export default function Tech() {
                   </div>
 
                   <div className="tech-details">
-                    <p className="description">
-                      {eachNews.description.substring(0, 154)}
+                    <p className="description" dangerouslySetInnerHTML={{__html:eachNews.description.substring(0,154)}}>
+                      {/* {eachNews.description.substring(0, 154)} */}
                     </p>
                     <p>
                       <AiTwotoneCalendar /> {eachNews.created}
