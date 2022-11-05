@@ -39,7 +39,7 @@ import ViewAll from "./components/ViewAll";
 export const AppUrl = "http://192.168.0.167:8000";
 
 function App() {
-  const authctx = useContext(AuthenticationContext);
+  const authctx = useContext(AuthenticationContext); 
   
   const getAdmin = window.localStorage.getItem('is_admin');
   const checkAdmin = getAdmin==='true'?true:false
