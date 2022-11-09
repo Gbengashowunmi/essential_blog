@@ -25,7 +25,7 @@ export default function ViewAll() {
   }, []);
 
   return (
-    <div>
+    <div className="view_all">
       <div className="top_section">
         <div className="left">
             <div className="image_container">

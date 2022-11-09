@@ -4,10 +4,8 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import './DashboardStyles/Dashboard.scss'
 import LeftSideBar from './LeftSideBar'
 import RightSideBar from './RightSideBar'
-// import WriteBlog from './WriteBlog'
-// import WriteBlog from './WriteBlog'
 
-
+ 
 export default function Dashboard({children}) {
 
   const [navClick, setNavclick] = useState(false);

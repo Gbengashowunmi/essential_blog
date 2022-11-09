@@ -1,81 +1,82 @@
-.top_section{
+.view_all{
+width: 100%;
+padding-right: 2rem;
+  .top_section {
     width: 100%;
     height: 30rem;
-    // margin-right: 3rem;
+    // margin-right: 8rem;
     background-color: blue;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    .left{
-    width: 50%;
-    height: 100%;
-    // background-color: rgb(255, 17, 0);
-    position: relative;
-
-    .image_container{
+    .left {
+      width: 50%;
+      height: 100%;
+      // background-color: rgb(255, 17, 0);
+      position: relative;
+  
+      .image_container {
         height: 100%;
         width: 100%;
-        border: 2px solid blue;
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-
-      }
-      .button {
-        position: absolute;
-        bottom: 0;
-        padding: 1rem 1rem;
-        color: white;
-        button {
-          font-size: 1vw;
+        // border: 2px solid blue;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .button {
+          position: absolute;
+          bottom: 0;
+          padding: 1rem 1rem;
           color: white;
-          border: none;
-          background-color: orangered;
-        }
-        h5 {
-          font-size: 2vw;
-          font-weight: 600;
-          text-shadow: 2px 2px #111111;
+          button {
+            font-size: 1vw;
+            color: white;
+            border: none;
+            background-color: orangered;
+          }
+          h5 {
+            font-size: 2vw;
+            font-weight: 600;
+            text-shadow: 2px 2px #111111;
+          }
         }
       }
     }
-    }
-    .right{
-    width: 50%;
-    height: 100%;
-    background-color: rgb(187, 104, 98);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    .top_right{
+    .right {
+      width: 50%;
+      height: 100%;
+      background-color: rgb(187, 104, 98);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .top_right {
         width: 100%;
         height: 50%;
         background-color: rgb(65, 82, 238);
-    }
-    .bottom{
+      }
+      .bottom {
         display: flex;
         width: 100%;
         height: 50%;
-    gap: 1rem;
-        .b1{
-            width: 50%;
-            height: 100%;
-            background-color: rgb(65, 238, 65);
+        gap: 1rem;
+        .b1 {
+          width: 50%;
+          height: 100%;
+          background-color: rgb(65, 238, 65);
         }
-        .b2{
-            width: 50%;
-            height: 100%;
-            background-color: rgb(212, 238, 65);
+        .b2 {
+          width: 50%;
+          height: 100%;
+          background-color: rgb(212, 238, 65);
         }
+      }
     }
-    }
-   
-}
-
-.read {
+  }
+  
+  .read {
     background-color: white;
-
+  
     width: 100%;
     height: fit-content;
     // border: 2px solid green;
@@ -85,18 +86,17 @@
     justify-content: space-between;
     gap: 2rem;
     border-bottom: 1px solid grey;
-
+  
     img {
       width: 40%;
       height: 100%;
       object-fit: cover;
-    //   border: 2px solid rgb(104, 87, 87);
-
+      //   border: 2px solid rgb(104, 87, 87);
     }
     .read-info {
       width: 63%;
       height: 100%;
-    //   border: 2px solid red;
+      //   border: 2px solid red;
       font-size: smaller;
       // padding: .3rem;
       line-height: 1rem;
@@ -107,38 +107,38 @@
         gap: 1rem;
       }
     }
-    .pub_btns{
+    .pub_btns {
       width: fit-content;
       height: fit-content;
       // border: 2px solid red;
-      button{
+      button {
         border: 1px solid transparent;
         border-radius: 5px;
         cursor: pointer;
         background-color: blue;
         color: white;
-        padding: .3rem .8rem;
-        transition: .8s;
+        padding: 0.3rem 0.8rem;
+        transition: 0.8s;
       }
-      button:hover{
+      button:hover {
         background-color: transparent;
         color: blue;
         border: 1px solid blue;
-        transition: .8s;
+        transition: 0.8s;
       }
-      .approve{
+      .approve {
         background-color: green;
       }
-      .reject{
+      .reject {
         background-color: tomato;
-
       }
     }
   }
-
-  .naviagte{
-    display:flex;
+  
+  .naviagte {
+    display: flex;
     justify-content: left;
-    gap: 1rem ;
+    gap: 1rem;
     // border: 2px solid red;
+  }
 }

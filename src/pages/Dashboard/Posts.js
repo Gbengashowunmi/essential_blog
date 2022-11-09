@@ -1,13 +1,4 @@
-// import React from "react";
-// import Dashboard from "./Dashboard";
 
-// export default function Posts() {
-//   return (
-//     <Dashboard>
-//       <div>Posts</div>
-//     </Dashboard>
-//   );
-// }
 
 import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineClockCircle, AiOutlineRight } from "react-icons/ai";
